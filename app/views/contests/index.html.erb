@@ -10,3 +10,16 @@
      </div>
    </div>
  </div>
+ hoge
+<div class="controls">
+<%= form_for :person do |f| %>
+  <label>日付の入力</label>              
+  <input type="date" name="start_date" class="datepicker">   
+  <label>時間の入力</label>              
+  <input type="time" name="start_time" class="datepicker"> 
+  <%= f.submit %>
+<% end %>
+</div>
+   
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>             
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
