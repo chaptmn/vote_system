@@ -1,2 +1,19 @@
-<h1>Contests#show</h1>
-<p>Find me in app/views/contests/show.html.erb</p>
+<h1>作品一覧</h1>
+<div class="row">
+  <%= 20.times do %>
+    <div class="col s4 m3">
+      <div class="card">
+        <div class="card-image">
+          <%=image_tag asset_path('dog.jpg') %>
+          <span class="card-title">タイトル</span>
+        </div>
+        <div class="card-content">
+          <p>説明文</p>
+        </div>
+        <div class="card-action">
+          <a href="#">リンク</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
