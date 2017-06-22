@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-   resources :contests do
+   resources :contests do 
      resources :products
      resource :vote, only:[:new, :create]
    end
