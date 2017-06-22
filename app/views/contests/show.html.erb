@@ -1,7 +1,15 @@
 <h1><%= @contest.title %></h1>
 
-<% if Time.now < @contest.start_time %>
-時間の編集可能 <%= @contest.start_time %>
+<% if Time.now > @contest.start_time and Time.now > @contest.end_time %>
+  時間の変更
+  <%= form_for(@contest) do |f| %>
+  <label>日付の入力</label>              
+    <input type="date" name="start_date" class="datepicker">   
+    <label>時間の入力</label>              
+    <input type="time" name="start_time" class="datepicker">
+
+    <%= f.submit '登録' %>
+  <% end %>
 <% end %>
 
 
