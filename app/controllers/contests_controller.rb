@@ -10,6 +10,8 @@ class ContestsController < ApplicationController
   end
 
   def show
+    @contest = Contest.find(params[:id])
+    @products = @contest.products
   end
 
   def vote

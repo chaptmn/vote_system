@@ -1,4 +1,12 @@
-<h1>作品一覧</h1>
+<h1><%= @contest.title %></h1>
+
+<% if Time.now < @contest.start_time %>
+時間の編集可能 <%= @contest.start_time %>
+<% end %>
+
+
+<% if @contest.end_time < Time.now or Time.now < @contest.start_time %>
+<h2>投票不可能</h2>
 <div class="row">
   <%= 20.times do %>
     <div class="col s4 m3">
@@ -17,3 +25,24 @@
     </div>
   <% end %>
 </div>
+<% else %>
+<h2>投票可能</h2>
+<div class="row">
+  <%= 20.times do %>
+    <div class="col s4 m3">
+      <div class="card">
+        <div class="card-image">
+          <%=image_tag asset_path('dog.jpg') %>
+          <span class="card-title">タイトル</span>
+        </div>
+        <div class="card-content">
+          <p>説明文</p>
+        </div>
+        <div class="card-action">
+          <a href="#">リンク</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% end %>
