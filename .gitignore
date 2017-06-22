@@ -16,6 +16,7 @@ vendor/
 !/log/.keep
 !/tmp/.keep
 seeds.rb
+public/
 
 # Ignore Byebug command history file.
 .byebug_history
