@@ -6,7 +6,7 @@
 
 
 <% if @contest.end_time < Time.now or Time.now < @contest.start_time %>
-<h2>投票不可能</h2>
+  <h2>投票不可能<br>結果の表示</h2>
 <div class="row">
   <% @products.each do |pro| %>
     <div class="col s4 m3 result-card">
