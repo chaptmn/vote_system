@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20170622090140) do
     t.datetime "updated_at",               null: false
   end
 
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "contest_id",               null: false
     t.integer  "user_id",                  null: false
     t.string   "title",                    null: false
@@ -33,14 +33,14 @@ ActiveRecord::Schema.define(version: 20170622090140) do
     t.datetime "updated_at",               null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",    null: false
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "contest_id"
     t.integer  "product_id"
