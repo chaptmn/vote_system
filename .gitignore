@@ -11,6 +11,8 @@
 /log/*
 /tmp/*
 database.yml
+schema.rb
+vendor/
 !/log/.keep
 !/tmp/.keep
 

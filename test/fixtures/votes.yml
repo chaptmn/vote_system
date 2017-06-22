@@ -2,8 +2,12 @@
 
 one:
   user_id: 1
-  name: MyString
+  contest_id: 1
+  product_id: 1
+  reason: MyText
 
 two:
   user_id: 1
-  name: MyString
+  contest_id: 1
+  product_id: 1
+  reason: MyText

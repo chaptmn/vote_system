@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable,:omniauthable,
          :omniauthable, :omniauth_providers => [:google_oauth2]
 
+  has_many :products
+  has_many :votes 
   def self.find_for_google_oauth2(auth)
     user = User.where(email: auth.info.email).first
     unless user
