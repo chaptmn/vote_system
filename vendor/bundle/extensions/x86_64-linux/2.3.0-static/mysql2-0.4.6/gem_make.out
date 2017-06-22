@@ -1,0 +1,62 @@
+current directory: /home/vagrant/vote_system/vendor/bundle/gems/mysql2-0.4.6/ext/mysql2
+/home/vagrant/.rbenv/versions/2.3.3/bin/ruby -r ./siteconf20170622-26385-ryxgxm.rb extconf.rb
+checking for rb_absint_size()... yes
+checking for rb_absint_singlebit_p()... yes
+checking for ruby/thread.h... yes
+checking for rb_thread_call_without_gvl() in ruby/thread.h... yes
+checking for rb_thread_blocking_region()... no
+checking for rb_wait_for_single_fd()... yes
+checking for rb_hash_dup()... yes
+checking for rb_intern3()... yes
+checking for rb_big_cmp()... yes
+-----
+Using mysql_config at /usr/bin/mysql_config
+-----
+checking for mysql.h... yes
+checking for SSL_MODE_DISABLED in mysql.h... yes
+checking for SSL_MODE_PREFERRED in mysql.h... yes
+checking for SSL_MODE_REQUIRED in mysql.h... yes
+checking for SSL_MODE_VERIFY_CA in mysql.h... yes
+checking for SSL_MODE_VERIFY_IDENTITY in mysql.h... yes
+checking for errmsg.h... yes
+checking for mysqld_error.h... yes
+-----
+Setting libpath to /usr/lib64/mysql
+-----
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/vagrant/vote_system/vendor/bundle/extensions/x86_64-linux/2.3.0-static/mysql2-0.4.6/mkmf.log
+
+current directory: /home/vagrant/vote_system/vendor/bundle/gems/mysql2-0.4.6/ext/mysql2
+make "DESTDIR=" clean
+
+current directory: /home/vagrant/vote_system/vendor/bundle/gems/mysql2-0.4.6/ext/mysql2
+make "DESTDIR="
+compiling client.c
+compiling infile.c
+compiling mysql2_ext.c
+compiling result.c
+result.c: 関数 ‘rb_mysql_result_alloc_result_buffers’ 内:
+result.c:326:40: 警告: 互換性のないポインタ型からの代入です [デフォルトで有効]
+     wrapper->result_buffers[i].is_null = &wrapper->is_null[i];
+                                        ^
+result.c:328:40: 警告: 互換性のないポインタ型からの代入です [デフォルトで有効]
+     wrapper->result_buffers[i].error   = &wrapper->error[i];
+                                        ^
+result.c: トップレベル:
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-used-but-marked-unused" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-static-in-inline" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-reserved-id-macro" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-missing-variable-declarations" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-documentation-unknown-command" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-disabled-macro-expansion" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-covered-switch-default" です [デフォルトで有効]
+cc1: 警告: 認識できないコマンドラインオプション "-Wno-conditional-uninitialized" です [デフォルトで有効]
+compiling statement.c
+linking shared-object mysql2/mysql2.so
+
+current directory: /home/vagrant/vote_system/vendor/bundle/gems/mysql2-0.4.6/ext/mysql2
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 mysql2.so ./.gem.20170622-26385-7o9cq8/mysql2
