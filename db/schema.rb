@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622070209) do
+ActiveRecord::Schema.define(version: 20170622090140) do
 
   create_table "contests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "admin_id",                 null: false
@@ -29,6 +29,22 @@ ActiveRecord::Schema.define(version: 20170622070209) do
     t.text     "detail",     limit: 65535
     t.string   "image"
     t.string   "link"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "user_id",    null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "user_id"
+    t.integer  "contest_id"
+    t.integer  "product_id"
+    t.text     "reason",     limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
