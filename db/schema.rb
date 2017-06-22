@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170622063410) do
 
-  create_table "contests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "contests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "admin_id",                 null: false
     t.string   "title",                    null: false
     t.text     "detail",     limit: 65535

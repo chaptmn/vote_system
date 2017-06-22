@@ -19,8 +19,8 @@ default: &default
 
 development:
   <<: *default
-  username: development_user
-  password: development_pass
+  username: root
+  password: 
   database: vote_system_dev
 
 # Warning: The database defined as "test" will be erased and
