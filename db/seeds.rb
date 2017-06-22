@@ -57,7 +57,9 @@ User.create({user_id: 48, name:'阿部'})
 User.create({user_id: 49, name:'加藤'})
 User.create({user_id: 50, name:'中出'})
 
-Contest.create({id: 1, admin_id: 1, title:'第一回エンジニア合宿評価シート', detail:'評価してください', start_time:Time.now, end_time:Time.now + 1.hour})
+Contest.create({id: 1, admin_id: 1, title:'第一回エンジニア合宿評価シート(開始前)', detail:'評価してください', start_time:Time.now - 1.day - 1.hour , end_time:Time.now - 1.day})
+Contest.create({id: 2, admin_id: 1, title:'第一回エンジニア合宿評価シート(集計中)', detail:'評価してください', start_time:Time.now - 1.day, end_time:Time.now + 1.day})
+Contest.create({id: 3, admin_id: 1, title:'第一回エンジニア合宿評価シート(終了)'  , detail:'評価してください', start_time:Time.now + 1.day, end_time:Time.now + 1.day + 1.hour})
 
 # Product.create({id:1, contest_id:1, user_id: Random.new(50), title:"rails投票", detail:"頑張って作りました。", image:"https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg", link:"https://www.min-inuzukan.com/"})
 # Product.create({id:2, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
