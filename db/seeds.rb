@@ -61,31 +61,46 @@ Contest.create({id: 1, admin_id: 1, title:'第一回エンジニア合宿評価�
 Contest.create({id: 2, admin_id: 1, title:'第一回エンジニア合宿評価シート(集計中)', detail:'評価してください', start_time:Time.now - 1.day, end_time:Time.now + 1.day})
 Contest.create({id: 3, admin_id: 1, title:'第一回エンジニア合宿評価シート(終了)'  , detail:'評価してください', start_time:Time.now + 1.day, end_time:Time.now + 1.day + 1.hour})
 
-Product.create({id:1, contest_id:1, user_id: Random.new(50), title:"rails投票", detail:"頑張って作りました。", image:"https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg", link:"https://www.min-inuzukan.com/"})
-Product.create({id:2, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:3, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:4, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:5, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:6, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:7, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:8, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:9, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:10, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:11, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:12, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:13, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:14, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:15, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:16, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:17, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:18, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:19, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
-Product.create({id:20, contest_id:1, user_id: Random.new(50), title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:1 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:2 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:3 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:4 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:5 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:6 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:7 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:8 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:9 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:10 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:11 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:12 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:13 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:14 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:15 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:16 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:17 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:18 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:19 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:20 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:21 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:22 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:23 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:24 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:25 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:26 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:27 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:28 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:29 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
+Product.create({id:30 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
 
-# for i in 5..50 do
-#   for j in 0..rand(4)
-#     enter = rand(20-1)
-#     print "#{i} > #{j} #{enter + 1}\n"
-#   end
-# end
+
+
+id = 0
+for i in 5..50 do
+  for j in 0..rand(4)
+    id += 1
+    enter = rand(20-1)
+    print "No.#{id} #{i}, #{enter}\n"
+    Vote.create({id:id, user_id:i, product_id:enter, contest_id: 1, reason: 'thank you!'})
+  end
+end
 
