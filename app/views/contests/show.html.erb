@@ -1,7 +1,7 @@
 <h1>作品一覧</h1>
 <div class="row">
   <%= 20.times do %>
-    <div class="col s4 m3">
+    <div class="col s4 m3 result-card">
       <div class="card">
         <div class="card-image">
           <%=image_tag asset_path('dog.jpg') %>
@@ -14,6 +14,12 @@
           <a href="#">リンク</a>
         </div>
       </div>
+      <!-- <% if @contest.end_time > Time.now %> -->
+        <div class="result">
+          43
+        </div>
+      <!-- <% end %> -->
     </div>
+
   <% end %>
 </div>
