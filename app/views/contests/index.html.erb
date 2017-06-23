@@ -1,18 +1,16 @@
 <h1>コンテスト一覧</h1>
 <h3><%= link_to "コンテスト新規作成", :controller => "contests", :action => "new" %></h3>
-
-<%= @contests.each do |contest| %>
-  <div class="row">
-     <div class="col s12 m12">
-       <%= link_to contest do %>
-         <div class="card-panel orange lighten-5">
-           <h3><%= contest.title %></h3>
-           <span>
-             <%= contest.detail %>
-           </span>
-         </div>
-        <% end %>
-     </div>
-   </div>
- </div>
-<% end %>
+<div class="row">
+  <%= @contests.each do |contest| %>
+    <div class="col s12 m12">
+      <%= link_to contest do %>
+        <div class="card-panel orange lighten-5">
+          <h3><%= contest.title %></h3>
+          <span>
+            <%= contest.detail %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
