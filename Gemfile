@@ -57,7 +57,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'devise',:branch => "feature-login"
-gem 'omniauth', :branch => "feature-login"
-gem 'omniauth-google-oauth2', :branch => "feature-login"
+gem 'devise' 
+gem 'omniauth'
+gem 'omniauth-google-oauth2' 
 gem 'dotenv-rails'
