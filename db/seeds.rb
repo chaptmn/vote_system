@@ -94,13 +94,6 @@ Product.create({id:30 , user_id:rand(50), contest_id:1, title:'rails投票', det
 
 id = 0
 
-Vote.create({id:id, user_id:2, product_id:1,  contest_id: 1, reason: 'thank you!'}) id += 1
-Vote.create({id:id, user_id:3, product_id:23, contest_id: 1, reason: 'thank you!'}) id += 1
-Vote.create({id:id, user_id:3, product_id:3,  contest_id: 1, reason: 'thank you!'}) id += 1
-Vote.create({id:id, user_id:4, product_id:41, contest_id: 1, reason: 'thank you!'}) id += 1
-Vote.create({id:id, user_id:4, product_id:5,  contest_id: 1, reason: 'thank you!'}) id += 1
-Vote.create({id:id, user_id:4, product_id:6,  contest_id: 1, reason: 'thank you!'}) id += 1
-
 for i in 5..50 do
   for j in 0..rand(4)
     id += 1
