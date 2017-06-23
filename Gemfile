@@ -61,3 +61,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '> 3.3.6'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
+gem 'devise' 
+gem 'omniauth'
+gem 'omniauth-google-oauth2' 
+gem 'dotenv-rails'
