@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
 
-  # devise_for :users, controllers: {
-  #   :omniauth_callbacks => "users/omniauth_callbacks",
-  # }
- get 'user/cal', to: 'user#user_cal'  #ログイン後に表示する画面の設定
+
+  devise_for :users, controllers: {
+      omniauth_callbacks: "users/omniauth_callbacks"
+  }
+
+  root to: 'user#user_cal'  #ログイン後に表示する画面の設定
   # get 'user/cal', to: 'omniauth_callbacks#user_cal'  #ログイン後に表示する画面の設定
 
-  root to: 'welcome#index'
-
-  devise_for :users
-   # resources :contests do
+    resources :contests , except:[:index]
+  #root :to => 'contents#index'
    #   post 'vote', to:'contests#vote'
    #   resources :products
    # end

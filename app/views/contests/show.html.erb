@@ -1,2 +1,5 @@
-<h1>Contests#show</h1>
-<p>Find me in app/views/contests/show.html.erb</p>
+
+<%= link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path(:google) %>
+<%= ENV['GOOGLE_APP_ID'] %>
+<%= ENV['GOOGLE_APP_SECRET'] %>
+
