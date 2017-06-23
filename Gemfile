@@ -56,3 +56,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# for time input
+gem 'bootstrap-sass', '> 3.3.6'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+gem 'devise' 
+gem 'omniauth'
+gem 'omniauth-google-oauth2' 
+gem 'dotenv-rails'

@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-   resources :contests do 
+
+
+  devise_for :users, controllers: {
+      omniauth_callbacks: "users/omniauth_callbacks"
+  }
+
+  root to: 'contests#index'  
+
+   resources :contests, except:[:index] do 
      resources :products
      resource :vote, only:[:new, :create]
    end

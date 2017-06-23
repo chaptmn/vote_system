@@ -43,6 +43,7 @@ class ContestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contest_params
+      p params
       params.require(:contest).permit(:admin_id, :title, :detail, :start_time, :end_time)
     end
 end
