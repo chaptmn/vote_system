@@ -8,11 +8,13 @@
 <% if Time.now < @contest.start_time %>
 時間の編集可能 <%= @contest.start_time %>
 <% end %>
+
+<% if @vote != 0 %>
 <div class="vote_title">あと</div><div class="vote_count"><%= @vote %></div><div class="vote_title">票投稿可能</div><br />
 <div class="select">なし</div>
 <div class="select">なし</div>
 <div class="select">なし</div>
-
+<% end %>
 <% if @contest.end_time < Time.now or Time.now < @contest.start_time %>
   <h2>投票不可能<br>結果の表示</h2>
 <div class="row">
