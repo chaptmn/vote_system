@@ -12,7 +12,7 @@ class ContestsController < ApplicationController
   def show
     @products = @contest.products
     @user = User.first
-    @vote = 3 - @user.votes.count
+    @vote = 9 - @user.votes.count
     @chart = @products.map{|pro|
       [pro.title, pro.votes.count]
     }.sort{|a,b| b[1] <=> a[1]}
