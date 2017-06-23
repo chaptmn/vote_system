@@ -3,7 +3,7 @@
 <h1>コンテスト一覧</h1>
 <h3><%= link_to "コンテスト新規作成", :controller => "contests", :action => "new" %></h3>
 <div class="row">
-  <%= @contests.each do |contest| %>
+  <% @contests.each do |contest| %>
     <div class="col s12 m12">
       <%= link_to contest do %>
         <div class="card-panel orange lighten-5">
