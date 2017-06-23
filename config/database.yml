@@ -54,3 +54,4 @@ production:
   database: vote_system_production
   username: vote_system
   password: <%= ENV['VOTE_SYSTEM_DATABASE_PASSWORD'] %>
+  
