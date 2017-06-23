@@ -1,13 +1,11 @@
 <h1>コンテスト新規作成</h1>
-<p>Find me in app/views/contests/new.html.erb</p>
 <%= form_for(@contest) do |f| %>
-  <%= f.label :admin_id %>
-  <%= f.text_field :admin_id %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :detail %>
   <%= f.text_field :detail %>
   <%= f.label :start_time %>
+  <%= f.hidden_field :admin_id, :value => login_user.id %>
   <%= f.hidden_field :start_time, :value => "20171212111100" %>
   <!-- <%= f.text_field :start_time %> -->
   <%= f.label :end_time %>
