@@ -28,7 +28,10 @@
 <% if @contest.end_time < Time.now or Time.now < @contest.start_time %>
   <h2>投票不可能<br>結果の表示</h2>
 <div class="row">
-  <% @products.each do |pro| %>
+  <% @products.each_with_index do |pro,i| %>
+    <% if i % 4 == 3%>
+      <div class="row">
+    <% end %>
     <div class="col s4 m3 result-card">
       <div class="card">
         <div class="card-image">
@@ -46,15 +49,9 @@
           <a href="<%= pro.link %>"><%= pro.link %></a>
         </div>
       </div>
-      <!-- <% if @contest.end_time > Time.now %> -->
-        <div class="result">
-          43
+      <% if i % 4 == 3 %>
         </div>
-      <!-- <% else %> -->
-        <div class="result">
-          ??
-        </div>
-      <!-- <% end %> -->
+      <% end %>
     </div>
 
   <% end %>
@@ -64,7 +61,7 @@
 <%#jsで3つ選んだ感じにできるUI%>
 <div class="row">
   <% @products.each do |pro| %>
-    <div class="col s4 m3 result-card"> 
+    <div class="col s4 m3 result-card">
       <div class="card">
         <div class="card-image">
           <%= image_tag asset_path(pro.image) %>
