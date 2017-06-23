@@ -12,6 +12,8 @@ class ContestsController < ApplicationController
   def show
     @contest = Contest.find(params[:id])
     @products = @contest.products
+    @user = User.first
+    @vote = 3 - @user.votes.count
   end
 
   def vote
