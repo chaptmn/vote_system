@@ -12,6 +12,8 @@
 
     <%= f.submit '開始時間の変更' %>
   <% end %>
+<%= link_to "ほげ", "/contests/#{@contest.id}/products/new" %>
+
 <%= form_tag("/contests/#{@contest.id}/vote/new", :method => :get) do %>
 <input type=hidden name="selected_id" class="selected_id" value=""/>
 
