@@ -1,6 +1,6 @@
 
 <div>
-  <%= form_for(@product) do |f| %>
+  <%= form_for(@product,:url => {:controller => :products, :action => :create}) do |f| %>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
     <%= f.label :detail %><br>
@@ -9,6 +9,8 @@
     <%= f.text_field :link %>
     <%= f.label :image %><br>
     <%= f.file_field :image %>
+    <%= f.hidden_field :contest_id, :value => params[:contest_id] %>
+    <%= f.hidden_field :user_id, :value => 2 %>
     <%= f.submit %>
   <% end %>
 </div>

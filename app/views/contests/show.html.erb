@@ -9,42 +9,62 @@
 <div class="select">なし</div>
 
 <% if @contest.end_time < Time.now or Time.now < @contest.start_time %>
-<h2>投票不可能</h2>
+  <h2>投票不可能<br>結果の表示</h2>
 <div class="row">
-  <%= 20.times do %>
-    <div class="col s4 m3">
+  <% @products.each do |pro| %>
+    <div class="col s4 m3 result-card">
       <div class="card">
         <div class="card-image">
-          <%=image_tag asset_path('dog.jpg') %>
-          <span class="card-title">タイトル</span>
+          <%=image_tag asset_path(pro.image) %>
+          <span class="card-title"><%= pro.title %></span>
         </div>
         <div class="card-content">
-          <p>説明文</p>
+          <p><%= pro.detail %></p>
         </div>
         <div class="card-action">
-          <a href="#">リンク</a>
+          <a href="<%= pro.link %>"><%= pro.link %></a>
         </div>
       </div>
+      <!-- <% if @contest.end_time > Time.now %> -->
+        <div class="result">
+          43
+        </div>
+      <!-- <% else %> -->
+        <div class="result">
+          ??
+        </div>
+      <!-- <% end %> -->
     </div>
+
   <% end %>
 </div>
 <% else %>
 <h2>投票可能</h2>
+<%= link_to "投票する", new_contest_product_path(params[:id]) %>
 <div class="row">
-  <%= 20.times do %>
-    <div class="col s4 m3">
+  <% @products.each do |pro| %>
+    <div class="col s4 m3 result-card">
       <div class="card">
         <div class="card-image">
-          <%=image_tag asset_path('dog.jpg') %>
-          <span class="card-title">タイトル</span>
+          <%= image_tag asset_path(pro.image) %>
+          <span class="card-title"><%= pro.title %></span>
         </div>
         <div class="card-content">
-          <p>説明文</p>
+          <p><%= pro.detail %></p>
         </div>
         <div class="card-action">
-          <a href="#">リンク</a>
+          <a href="<%= pro.link %>"><%= pro.link %></a>
         </div>
       </div>
+      <!-- <% if @contest.end_time > Time.now %> -->
+        <div class="result">
+          43
+        </div>
+      <!-- <% else %> -->
+        <div class="result">
+          ??
+        </div>
+      <!-- <% end %> -->
     </div>
   <% end %>
 </div>

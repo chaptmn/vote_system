@@ -10,7 +10,6 @@ class ContestsController < ApplicationController
   end
 
   def show
-    @contest = Contest.find(params[:id])
     @products = @contest.products
     @user = User.first
     @vote = 3 - @user.votes.count
@@ -23,6 +22,7 @@ class ContestsController < ApplicationController
     @contest = Contest.new(contest_params)
     respond_to do |format|
       if @contest.save
+        #これ使ってるのかな
         format.html { redirect_to @contest, notice: '大変よくできました！' }
         format.json { render :show, status: :created, location: @contest }
       else

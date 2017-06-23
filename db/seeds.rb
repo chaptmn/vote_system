@@ -92,7 +92,6 @@ Product.create({id:28 , user_id:rand(50), contest_id:1, title:'rails投票', det
 Product.create({id:29 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
 Product.create({id:30 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
 
-
 id = 0
 for i in 5..50 do
   for j in 0..rand(4)
