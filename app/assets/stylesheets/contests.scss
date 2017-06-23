@@ -1,3 +1,18 @@
 // Place all the styles related to the contests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.result{
+  background-color: orange;
+  color: white;
+  border-radius: 10px;
+  font-size: 40px;
+  position: relative;
+  margin-top: -110px;
+  margin-left: 320px;
+  padding: 5px 20px;
+
+}
+.result-card{
+  margin-top: 110px;
+}
