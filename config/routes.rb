@@ -5,9 +5,9 @@ Rails.application.routes.draw do
       omniauth_callbacks: "users/omniauth_callbacks"
   }
 
-  root to: 'user#user_cal'  #とりあえず置いた
+  root to: 'contests#index'  
 
-   resources :contests do 
+   resources :contests, except:[:index] do 
      resources :products
      resource :vote, only:[:new, :create]
    end

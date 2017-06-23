@@ -1,8 +1,4 @@
 
-<%= link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path(:google) %>
-<%= ENV['GOOGLE_APP_ID'] %>
-<%= ENV['GOOGLE_APP_SECRET'] %>
-
 <h1><%= @contest.title %></h1>
 
 <% if Time.now > @contest.start_time and Time.now > @contest.end_time %>
