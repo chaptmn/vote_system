@@ -20,6 +20,8 @@ class ContestsController < ApplicationController
 
   def create
     @contest = Contest.new(contest_params)
+    @contest[:start_time] = params[:start_time].to_time
+    @contest[:end_time] = params[:end_time].to_time
     respond_to do |format|
       if @contest.save
         #これ使ってるのかな
@@ -43,7 +45,8 @@ class ContestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contest_params
-      p params
-      params.require(:contest).permit(:admin_id, :title, :detail, :start_time, :end_time)
+      params.require(:contest).permit(:admin_id, :title, :detail)
+      #params.require(:start_time)
+      #params.require(:end_time)
     end
 end
