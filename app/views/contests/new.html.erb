@@ -13,5 +13,15 @@
   <%= f.label :end_time %>
   <%= f.hidden_field :end_time, :value => "20171212111200" %>
   <!-- <%= f.text_field :end_time %> -->
+
+  <label>日付の入力</label>              
+  <input type="date" name="start_date" class="datepicker">   
+  <label>時間の入力</label>              
+  <input type="time" name="start_time" class="datepicker">
+   
   <%= f.submit '登録' %>
 <% end %>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script            
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 

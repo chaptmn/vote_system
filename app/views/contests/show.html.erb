@@ -1,10 +1,29 @@
-<h1><%= @contest.title %></h1>
 
-<% if Time.now < @contest.start_time %>
-時間の編集可能 <%= @contest.start_time %>
+<h1><%= @contest.title %></h1>
+<%= form_tag("/contests/#{@contest.id}/vote/new", :method => :get) do %>
+<input type=hidden name="selected_id" class="selected_id" value=""/>
+
+    <%= submit_tag "登録する" %>
 <% end %>
 
+<% if Time.now > @contest.start_time and Time.now > @contest.end_time %>
+  時間の変更
+  <%= form_for(@contest) do |f| %>
+  <label>日付の入力</label>              
+    <input type="date" name="start_date" class="datepicker">   
+    <label>時間の入力</label>              
+    <input type="time" name="start_time" class="datepicker">
 
+    <%= f.submit '登録' %>
+  <% end %>
+<% end %>
+
+<% if @vote != 0 %>
+<div class="vote_title">あと</div><div class="vote_count"><%= @vote %></div><div class="vote_title">票投稿可能</div><br />
+<div class="select">なし</div>
+<div class="select">なし</div>
+<div class="select">なし</div>
+<% end %>
 <% if @contest.end_time < Time.now or Time.now < @contest.start_time %>
   <h2>投票不可能<br>結果の表示</h2>
 <div class="row">
@@ -12,7 +31,11 @@
     <div class="col s4 m3 result-card">
       <div class="card">
         <div class="card-image">
-          <%=image_tag asset_path(pro.image) %>
+          <% if pro.image == nil %>
+            <%= image_tag asset_path('noimages.jpeg') %>
+          <% else %>
+            <%= image_tag asset_path(pro.image) %>
+          <% end %>
           <span class="card-title"><%= pro.title %></span>
         </div>
         <div class="card-content">
@@ -37,10 +60,10 @@
 </div>
 <% else %>
 <h2>投票可能</h2>
-<%= link_to "投票する", new_contest_product_path(params[:id]) %>
+<%#jsで3つ選んだ感じにできるUI%>
 <div class="row">
   <% @products.each do |pro| %>
-    <div class="col s4 m3 result-card">
+    <div class="col s4 m3 result-card"> 
       <div class="card">
         <div class="card-image">
           <%= image_tag asset_path(pro.image) %>
@@ -65,4 +88,66 @@
     </div>
   <% end %>
 </div>
+  <a href="<%= new_contest_vote_path(params[:id]) %>">確認</a> 
 <% end %>
+
+<script>
+
+// 指定したindexの番号を消します
+clean_select = function(index) {
+  for(var i = 0 ; i < 3 ; i ++){
+    if($('div.select')[i].textContent == index + 1){
+      $('div.select')[i].textContent = 'なし'
+    }
+  }
+}
+
+// 
+pack_select = function() {
+  var now, str = '';
+  for(var i = 0, now = 0 ; i < 3 ; i ++){
+    if($('div.select')[i].textContent != 'なし'){
+      $('div.select')[now].textContent = $('div.select')[i].textContent
+      str += $('div.select')[i].textContent + ', '
+      now ++
+    }      
+  }
+  console.log(str)
+
+  $('input.selected_id')[0].value = str
+  console.log($('input.selected_id')[0].value)
+  for( ; now < 3 ; now ++){
+    $('div.select')[now].textContent = 'なし'
+  }
+}
+
+$('div.card-image').on('click', function(){
+  point = Number($('div.vote_count')[0].textContent)
+  var index = $('div.card-image').index(this);
+  if(!$(this).hasClass('active')){ // 選択する
+    console.log([point, index])
+    $('div.select')[3-point].textContent = index + 1
+    if(point != 0){
+      $(this).parent().css("border", "1px solid #ff0000")
+      $(this).toggleClass('active')
+      point --
+    }
+  } else { // 選択を外す
+    clean_select(index)
+    $(this).parent().css("border", "none")
+    $(this).toggleClass('active')
+    point ++
+  }
+  pack_select()
+  console.log(index + 'th item clicked!');
+  console.log(point)
+  $('div.vote_count')[0].textContent = point
+});
+</script>
+
+<style>
+div.vote_count, .vote_title, .select{
+  float:left;
+
+}
+</style>

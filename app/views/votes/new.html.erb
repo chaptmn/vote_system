@@ -1,0 +1,21 @@
+
+<%#materializeを使ってカード型にしてその下フォームをくっつける感じかな？%>
+<%= i = 0 %>
+  <%= form_for(@vote,:url => {:controller => :votes, :action => :create}) do |f| %>
+    <% @products.each do |pro| %>
+        <% i+= 1 %>
+        <%= i %>
+        <%= fields_for "vote[]", @vote do |fi| %>
+            <%= pro.id %>
+            <%= pro.title %>
+            <%= image_tag asset_path(pro.image) %>
+            <%= fi.hidden_field :contest_id, :value => pro.contest_id %>
+            <%= fi.hidden_field :product_id, :value => pro.id %>
+            <%= fi.hidden_field :user_id, :value => @user.id %>
+            <% f.label :reason%>
+            <%= fi.text_area :reason %>
+          <br />
+        <% end %>
+    <% end %>
+    <%= f.submit("投票！") %>
+  <% end %>
