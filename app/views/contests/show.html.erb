@@ -51,6 +51,36 @@
 <% end %>
 
 <script>
+
+// 指定したindexの番号を消します
+clean_select = function(index) {
+  for(var i = 0 ; i < 3 ; i ++){
+    if($('div.select')[i].textContent == index + 1){
+      $('div.select')[i].textContent = 'なし'
+    }
+  }
+}
+
+// 
+pack_select = function() {
+  var now;
+  for(var i = 0, now = 0 ; i < 3 ; i ++){
+    if($('div.select')[i].textContent != 'なし'){
+      $('div.select')[now].textContent = $('div.select')[i].textContent
+      now ++
+    }      
+  }
+
+  for( ; now < 3 ; now ++){
+    $('div.select')[now].textContent = 'なし'
+  }
+  console.log({now: now})
+  // for(; now < 3 ; now ++){
+  //   $('div.select')[now].textContent = 'なし'
+
+//  }
+}
+
 $('div.card-image').on('click', function(){
   point = Number($('div.vote_count')[0].textContent)
   var index = $('div.card-image').index(this);
@@ -63,17 +93,12 @@ $('div.card-image').on('click', function(){
       point --
     }
   } else { // 選択を外す
-    for(var i = 0 ; i < 3 ; i ++){
-      if($('div.select')[i].textContent == index + 1){
-        console.log(true)
-        $('div.select')[i].textContent = 'なし'
-      }
-    }
-    console.log([point, index])
+    clean_select(index)
     $(this).parent().css("border", "none")
     $(this).toggleClass('active')
     point ++
   }
+  pack_select()
   console.log(index + 'th item clicked!');
   console.log(point)
   $('div.vote_count')[0].textContent = point
