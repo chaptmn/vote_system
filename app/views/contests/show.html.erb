@@ -12,7 +12,11 @@
     <div class="col s4 m3 result-card">
       <div class="card">
         <div class="card-image">
-          <%=image_tag asset_path(pro.image) %>
+          <% if pro.image == nil %>
+            <%= image_tag asset_path('noimages.png') %>
+          <% else %>
+            <%= image_tag asset_path(pro.image) %>
+          <% end %>
           <span class="card-title"><%= pro.title %></span>
         </div>
         <div class="card-content">
