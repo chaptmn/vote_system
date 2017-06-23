@@ -92,14 +92,14 @@ Product.create({id:28 , user_id:rand(50), contest_id:1, title:'rails投票', det
 Product.create({id:29 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
 Product.create({id:30 , user_id:rand(50), contest_id:1, title:'rails投票', detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})
 
-id = 0
-
 Vote.create({id:id, user_id:2, product_id:1,  contest_id: 1, reason: 'thank you!'}) id += 1
 Vote.create({id:id, user_id:3, product_id:23, contest_id: 1, reason: 'thank you!'}) id += 1
 Vote.create({id:id, user_id:3, product_id:3,  contest_id: 1, reason: 'thank you!'}) id += 1
 Vote.create({id:id, user_id:4, product_id:41, contest_id: 1, reason: 'thank you!'}) id += 1
 Vote.create({id:id, user_id:4, product_id:5,  contest_id: 1, reason: 'thank you!'}) id += 1
 Vote.create({id:id, user_id:4, product_id:6,  contest_id: 1, reason: 'thank you!'}) id += 1
+
+id = 0
 
 for i in 5..50 do
   for j in 0..rand(4)

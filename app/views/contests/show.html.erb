@@ -1,5 +1,10 @@
 
 <h1><%= @contest.title %></h1>
+<%= form_tag("/contests/#{@contest.id}/vote/new", :method => :get) do %>
+<input type=hidden name="selected_id" class="selected_id" value=""/>
+
+    <%= submit_tag "登録する" %>
+<% end %>
 
 <% if Time.now > @contest.start_time and Time.now > @contest.end_time %>
   時間の変更
@@ -12,7 +17,10 @@
     <%= f.submit '登録' %>
   <% end %>
 <% end %>
-
+<div class="vote_title">あと</div><div class="vote_count"><%= @vote %></div><div class="vote_title">票投稿可能</div><br />
+<div class="select">なし</div>
+<div class="select">なし</div>
+<div class="select">なし</div>
 
 <% if @contest.end_time < Time.now or Time.now < @contest.start_time %>
   <h2>投票不可能<br>結果の表示</h2>
@@ -80,21 +88,64 @@
 </div>
   <a href="<%= new_contest_vote_path(params[:id]) %>">確認</a> 
 <% end %>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-      crossorigin="anonymous"></script>
+
 <script>
-$(function(){
-  $('.result-card').click(function(){
+
+// 指定したindexの番号を消します
+clean_select = function(index) {
+  for(var i = 0 ; i < 3 ; i ++){
+    if($('div.select')[i].textContent == index + 1){
+      $('div.select')[i].textContent = 'なし'
+    }
+  }
+}
+
+// 
+pack_select = function() {
+  var now, str = '';
+  for(var i = 0, now = 0 ; i < 3 ; i ++){
+    if($('div.select')[i].textContent != 'なし'){
+      $('div.select')[now].textContent = $('div.select')[i].textContent
+      str += $('div.select')[i].textContent + ', '
+      now ++
+    }      
+  }
+  console.log(str)
+
+  $('input.selected_id')[0].value = str
+  console.log($('input.selected_id')[0].value)
+  for( ; now < 3 ; now ++){
+    $('div.select')[now].textContent = 'なし'
+  }
+}
+
+$('div.card-image').on('click', function(){
+  point = Number($('div.vote_count')[0].textContent)
+  var index = $('div.card-image').index(this);
+  if(!$(this).hasClass('active')){ // 選択する
+    console.log([point, index])
+    $('div.select')[3-point].textContent = index + 1
+    if(point != 0){
+      $(this).parent().css("border", "1px solid #ff0000")
+      $(this).toggleClass('active')
+      point --
+    }
+  } else { // 選択を外す
+    clean_select(index)
+    $(this).parent().css("border", "none")
     $(this).toggleClass('active')
-    
-  });
+    point ++
+  }
+  pack_select()
+  console.log(index + 'th item clicked!');
+  console.log(point)
+  $('div.vote_count')[0].textContent = point
 });
 </script>
+
 <style>
-.active{
-  opacity: 0.6;
-  color: #000;
+div.vote_count, .vote_title, .select{
+  float:left;
+
 }
 </style>
