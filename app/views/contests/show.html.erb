@@ -40,10 +40,10 @@
 </div>
 <% else %>
 <h2>投票可能</h2>
-<%= link_to "投票する", new_contest_product_path(params[:id]) %>
+<%#jsで3つ選んだ感じにできるUI%>
 <div class="row">
   <% @products.each do |pro| %>
-    <div class="col s4 m3 result-card">
+    <div class="col s4 m3 result-card"> 
       <div class="card">
         <div class="card-image">
           <%= image_tag asset_path(pro.image) %>
@@ -68,6 +68,7 @@
     </div>
   <% end %>
 </div>
+  <a href="<%= new_contest_vote_path(params[:id]) %>">確認</a> 
 <% end %>
 
 <script>
@@ -123,5 +124,6 @@ $('div.card-image').on('click', function(){
 <style>
 div.vote_count, .vote_title, .select{
   float:left;
+
 }
 </style>
