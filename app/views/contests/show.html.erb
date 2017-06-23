@@ -17,6 +17,7 @@
     <%= f.submit '登録' %>
   <% end %>
 <% end %>
+<%= link_to "ほげ", "/contests/#{@contest.id}/products/new" %>
 
 <% if @vote != 0 %>
 <div class="vote_title">あと</div><div class="vote_count"><%= @vote %></div><div class="vote_title">票投稿可能</div><br />
