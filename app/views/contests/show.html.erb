@@ -12,13 +12,8 @@
 
     <%= f.submit '開始時間の変更' %>
   <% end %>
-<%= link_to "ほげ", "/contests/#{@contest.id}/products/new" %>
+<%= link_to "作品の投稿", "/contests/#{@contest.id}/products/new" %>
 
-<%= form_tag("/contests/#{@contest.id}/vote/new", :method => :get) do %>
-<input type=hidden name="selected_id" class="selected_id" value=""/>
-
-<%= submit_tag "作品の登録する" %>
-<% end %>
   <h2>投票不可能</h2>
 <div class="row">
   <% @products.each do |pro| %>
@@ -59,7 +54,13 @@
 <div class="vote_title">あと</div><div class="vote_count"><%= @vote %></div><div class="vote_title">票投稿可能</div><br />
 <div class="select">なし</div>
 <div class="select">なし</div>
-<div class="select">なし</div>
+<div class="select">なし</div><br />
+
+<%= form_tag("/contests/#{@contest.id}/vote/new", :method => :get) do %>
+<input type=hidden name="selected_id" class="selected_id" value=""/>
+
+<%= submit_tag "作品の登録する" %>
+<% end %>
 <% end %>
 <div class="row">
   <% @products.each do |pro| %>
@@ -70,6 +71,7 @@
           <span class="card-title"><%= pro.title %></span>
         </div>
         <div class="card-content">
+          <p><%= pro.user.name %></p>
           <p><%= pro.detail %></p>
         </div>
         <div class="card-action">
