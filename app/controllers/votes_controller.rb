@@ -1,5 +1,7 @@
 class VotesController < ApplicationController
   include ApplicationHelper
+  before_action :is_login?, only: [:new, :create]
+
   def new
     ids = params['selected_id'].split(',')[0...-1]
     p ids
@@ -21,5 +23,12 @@ class VotesController < ApplicationController
 
     redirect_to contest_path(params[:contest_id])   
   end
+
+    private
+      def is_login?
+        if session[:uid] == nil
+          redirect_to user_google_oauth2_omniauth_authorize_path 
+        end
+      end
 
 end
