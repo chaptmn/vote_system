@@ -8,6 +8,11 @@
       <%= link_to contest do %>
         <div class="card-panel orange lighten-5">
           <h3><%= contest.title %></h3>
+          <div class="tags">
+              <div class="chip <%= contest_status_tag(contest) %> lighten-4">
+              <%= contest_status(contest) %>
+            </div>
+          </div>
           <span>
             <%= contest.detail %>
           </span>
