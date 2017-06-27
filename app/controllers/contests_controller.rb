@@ -12,7 +12,11 @@ class ContestsController < ApplicationController
   def show
     @products = @contest.products
     @user = User.first
-    @vote = 3 - @user.votes.count
+    @vote = 9 - @user.votes.count
+    @chart = @products.map{|pro|
+      ["#{pro.title} #{pro.votes.count} 票", pro.votes.count]
+    }.sort{|a,b| b[1] <=> a[1]}
+    p @chart
   end
 
   def vote
@@ -20,6 +24,8 @@ class ContestsController < ApplicationController
 
   def create
     @contest = Contest.new(contest_params)
+    @contest[:start_time] = params[:start_time].to_time
+    @contest[:end_time] = params[:end_time].to_time
     respond_to do |format|
       if @contest.save
         #これ使ってるのかな
@@ -43,7 +49,8 @@ class ContestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contest_params
-      p params
-      params.require(:contest).permit(:admin_id, :title, :detail, :start_time, :end_time)
+      params.require(:contest).permit(:admin_id, :title, :detail)
+      #params.require(:start_time)
+      #params.require(:end_time)
     end
 end

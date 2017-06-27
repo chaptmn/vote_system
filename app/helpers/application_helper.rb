@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def user_id
-    User.find_by(uid: session["uid"]).id
+  def login_user
+    User.find_by(uid: session["uid"])
   end
 end
