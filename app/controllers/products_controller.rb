@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product ,only:[:edit,:show]
+  before_action :set_product ,only:[:edit,:show, :result]
 
   def show
   end
@@ -19,6 +19,10 @@ class ProductsController < ApplicationController
   end
 
   def update
+  end
+
+  def result
+    @votes = @product.votes
   end
 
   private

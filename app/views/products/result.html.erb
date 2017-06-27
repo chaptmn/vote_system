@@ -1,0 +1,12 @@
+
+<div>
+  <h1><%= @product.title %></h1>
+  <%= image_tag(@product.image) %>
+  <p><%= link_to @product.link,@product.link %></p>
+<div/>
+<div>
+<h2>コメント一覧</h2>
+<% @votes.each do |vote| %>
+  <%= vote.user.name %>:<%= vote.reason %><br>
+<% end %>
+<div/>
