@@ -49,6 +49,17 @@
 <% elsif Time.now > @contest.start_time and Time.now < @contest.end_time %>
   <%= '投票中' %>
   <h2>投票可能</h2>
+  <div class="time-container">
+  <h3>
+    <div class="timer" id="year"></div>
+    <div class="timer" id="month"></div>
+    <div class="timer" id="day"></div>
+    <div class="timer" id="hour"></div>
+    <div class="timer" id="min"></div>
+    <div class="timer" id="sec"></div>
+  </h3>
+  <div>
+  <br /><br />
   <% if @vote != 0 %>
     <div class="vote_title">あと</div>
     <div class="vote_count">
@@ -108,6 +119,32 @@
   <% end %>
 </div>
 <script>
+
+<% t = @contest.end_time %>
+console.log("called!!")
+end = new Date(<%= t.year %>, <%= t.month %>, <%= t.day %>, <%= t.hour %>, <%= t.min %> )
+increaseTime = function(){
+  now = new Date()
+  console.log("end time >>")
+  console.log({end: end})
+  console.log("now time >>")
+  console.log({now:now})
+  var calc = new Date(end-now);
+  console.log(calc.getUTCFullYear() - 1970 + "年");
+  $('div#year')[0].textContent = calc.getUTCFullYear() - 1970 + 'y'
+  console.log(calc.getUTCMonth() + "カ月");
+  $('div#month')[0].textContent = calc.getUTCMonth() + 'm'
+  console.log(calc.getUTCDate() - 1 + "日");
+  $('div#day')[0].textContent = calc.getUTCDate() + 'd'
+  console.log(calc.getUTCHours() + "時間");
+  $('div#hour')[0].textContent = calc.getUTCHours() + 'h'
+  console.log(calc.getUTCMinutes() + "分");
+  $('div#min')[0].textContent = calc.getUTCMinutes() + 'm'
+  console.log(calc.getUTCSeconds() + "秒");
+  $('div#sec')[0].textContent = calc.getUTCSeconds() + 's'
+}
+increaseTime()
+setInterval(increaseTime, 1000);
 
 // 指定したindexの番号を消します
 clean_select = function(index) {
@@ -174,6 +211,9 @@ $('div.card-image').on('click', function(){
 div.vote_count, .vote_title, .select{
   float:left;
 
+}
+div.timer{
+  float: left;
 }
 </style>
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
