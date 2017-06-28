@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product ,only:[:edit,:show]
+  before_action :set_product ,only:[:edit,:show, :result]
+  before_action :is_login?, except: [:show]
 
   def show
   end
@@ -21,6 +22,10 @@ class ProductsController < ApplicationController
   def update
   end
 
+  def result
+    @votes = @product.votes
+  end
+
   private
     def set_product
       @product = Product.find(params[:id])
@@ -30,4 +35,10 @@ class ProductsController < ApplicationController
      params.require(:product).permit(:contest_id,:user_id,:title,:image,:detail,:link)
    end
 
+    def is_login?
+      if session[:uid] == nil
+        redirect_to user_google_oauth2_omniauth_authorize_path 
+      end
+    end
+    
 end

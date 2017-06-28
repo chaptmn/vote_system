@@ -8,7 +8,34 @@
 <% else %>
   <%= render partial: "contests/partials/finished_contest", locals: { products: @products, contest: @contest, chart: @chart } %>
 <% end %>
+
 <script>
+
+<% t = @contest.end_time %>
+console.log("called!!")
+end = new Date(<%= t.year %>, <%= t.month %>, <%= t.day %>, <%= t.hour %>, <%= t.min %> )
+increaseTime = function(){
+  now = new Date()
+  console.log("end time >>")
+  console.log({end: end})
+  console.log("now time >>")
+  console.log({now:now})
+  var calc = new Date(end-now);
+  console.log(calc.getUTCFullYear() - 1970 + "年");
+  $('div#year')[0].textContent = calc.getUTCFullYear() - 1970 + 'y'
+  console.log(calc.getUTCMonth() + "カ月");
+  $('div#month')[0].textContent = calc.getUTCMonth() + 'm'
+  console.log(calc.getUTCDate() - 1 + "日");
+  $('div#day')[0].textContent = calc.getUTCDate() + 'd'
+  console.log(calc.getUTCHours() + "時間");
+  $('div#hour')[0].textContent = calc.getUTCHours() + 'h'
+  console.log(calc.getUTCMinutes() + "分");
+  $('div#min')[0].textContent = calc.getUTCMinutes() + 'm'
+  console.log(calc.getUTCSeconds() + "秒");
+  $('div#sec')[0].textContent = calc.getUTCSeconds() + 's'
+}
+increaseTime()
+setInterval(increaseTime, 1000);
 
 // 指定したindexの番号を消します
 clean_select = function(index) {
@@ -72,8 +99,8 @@ $('div.card-image').on('click', function(){
   });
 </script>
 <style>
-div.vote_count, .vote_title, .select{
+div.vote_count, .vote_title, .select, div.timer{
   float:left;
-
 }
+
 </style>

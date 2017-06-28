@@ -1,16 +1,10 @@
-<% '開始前' %>
-<h2>投票不可能</h2>
-時間の変更 
-  <%= form_for(@contest) do |f| %>
-    <label>日付の入力</label>
-    <input type="date" name="start_date" class="datepicker">
-    <label>時間の入力</label>
-    <input type="time" name="start_time" class="datepicker">
-    <%= f.submit '開始時間の変更' %>
+<% if current_user != nil && current_user.id == admin_id %>
+    <%= render partial: "contests/partials/change_time" %>
   <% end %>
-  <%= link_to "作品の投稿", "/contests/#{contest.id}/products/new" %>
+  <%= link_to "作品の投稿", "/contests/#{@contest.id}/products/new" %>
+  <h2>投票不可能</h2>
   <div class="row">
-    <% products.each_with_index do |pro,i| %>
+    <% @products.each_with_index do |pro,i| %>
       <% if i % 4 == 3%>
         <div class="row">
       <% end %>

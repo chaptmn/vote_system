@@ -1,9 +1,20 @@
 <%= '投票中' %>
-<h2>投票可能</h2>
-<% if vote != 0 %>
-  <div class="vote_title">あと</div>
+  <h2>投票可能</h2>
+  <div class="time-container">
+  <h3>
+    <div class="timer" id="year"></div>
+    <div class="timer" id="month"></div>
+    <div class="timer" id="day"></div>
+    <div class="timer" id="hour"></div>
+    <div class="timer" id="min"></div>
+    <div class="timer" id="sec"></div>
+  </h3>
+  <div>
+  <br /><br />
+  <% if @vote != 0 %>
+    <div class="vote_title">あと</div>
     <div class="vote_count">
-      <%= vote %>
+      <%= @vote %>
     </div>
     <div class="vote_title">票投稿可能</div>
     <br />
@@ -17,7 +28,7 @@
     <% end %>
   <% end %>
   <div class="row">
-    <% products.each_with_index do |pro,i| %>
+    <% @products.each_with_index do |pro,i| %>
       <% if i % 4 == 3%>
         <div class="row">
       <% end %>
@@ -49,5 +60,3 @@
         </div>
       <% end %>
     <% end %>
-  </div>
-</div>
