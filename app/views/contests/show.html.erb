@@ -2,11 +2,11 @@
   <%= @contest.title %>
 </h1>
 <% if Time.now > @contest.start_time and Time.now > @contest.end_time %>
-  <%= render partial: "contests/partials/pending_contest" %>
+  <%= render partial: "contests/partials/pending_contest",  locals: { products: @products,contest: @contest } %>
 <% elsif Time.now > @contest.start_time and Time.now < @contest.end_time %>
-  <%= render partial: "contests/partials/standing_contest" %>
+  <%= render partial: "contests/partials/standing_contest", locals: { products: @products, vote: @vote } %>
 <% else %>
-  <%= render partial: "contests/partials/finished_contest" %>
+  <%= render partial: "contests/partials/finished_contest", locals: { products: @products, contest: @contest, chart: @chart } %>
 <% end %>
 <script>
 
@@ -77,4 +77,3 @@ div.vote_count, .vote_title, .select{
 
 }
 </style>
-<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
