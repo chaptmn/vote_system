@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product ,only:[:edit,:show]
+  before_action :set_product ,only:[:edit,:show, :result]
   before_action :is_login?, except: [:show]
 
   def show
@@ -20,6 +20,10 @@ class ProductsController < ApplicationController
   end
 
   def update
+  end
+
+  def result
+    @votes = @product.votes
   end
 
   private
