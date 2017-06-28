@@ -1,12 +1,13 @@
 class ContestsController < ApplicationController
   before_action :set_contest, only: [:show, :edit]
+  before_action :is_login?, only: [:vote, :edit, :new, :create]
   
   def index
     @contests = Contest.all
   end
 
   def new
-    @contest = Contest.new
+      @contest = Contest.new
   end
 
   def show
@@ -52,5 +53,11 @@ class ContestsController < ApplicationController
       params.require(:contest).permit(:admin_id, :title, :detail)
       #params.require(:start_time)
       #params.require(:end_time)
+    end
+    
+    def is_login?
+      if session[:uid] == nil
+        redirect_to user_google_oauth2_omniauth_authorize_path 
+      end
     end
 end
