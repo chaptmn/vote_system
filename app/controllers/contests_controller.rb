@@ -13,7 +13,7 @@ class ContestsController < ApplicationController
   def show
     @products = @contest.products
     @user = User.first
-    @vote = 9 - @user.votes.count
+    @vote = 3 - @user.votes.count
     @chart = @products.map{|pro|
       ["<a href='#{result_contest_product_path(pro.id)}'>#{pro.title}</a> #{pro.votes.count} 票", pro.votes.count]
     }.sort{|a,b| b[1] <=> a[1]}
