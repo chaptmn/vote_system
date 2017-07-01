@@ -1,14 +1,13 @@
 <h1>
   <%= @contest.title %>
 </h1>
-<% if Time.now > @contest.start_time and Time.now > @contest.end_time %>
+<% if Time.now < @contest.start_time %>
   <%= render partial: "contests/partials/pending_contest",  locals: { products: @products,contest: @contest } %>
 <% elsif Time.now > @contest.start_time and Time.now < @contest.end_time %>
   <%= render partial: "contests/partials/standing_contest", locals: { products: @products, vote: @vote } %>
 <% else %>
   <%= render partial: "contests/partials/finished_contest", locals: { products: @products, contest: @contest, chart: @chart } %>
 <% end %>
-
 <script>
 
 <% t = @contest.end_time %>
