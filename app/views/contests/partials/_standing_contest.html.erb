@@ -40,11 +40,12 @@
               <% else %>
                 <%= image_tag asset_path(pro.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg';" %>
               <% end %>
+            </div>
+            <div class="card-content">
+            
               <span class="card-title">
                 <%= pro.title %>
               </span>
-            </div>
-            <div class="card-content">
               <p>
                 <%= pro.detail %>
               </p>
