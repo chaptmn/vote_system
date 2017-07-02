@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       omniauth_callbacks: "users/omniauth_callbacks"
   }
 
+  delete '/user/logout', 'user#destroy'
+
   root to: 'contests#index'  
 
    resources :contests, except:[:index] do 
