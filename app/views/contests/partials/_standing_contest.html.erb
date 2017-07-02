@@ -1,0 +1,63 @@
+<%= '投票中' %>
+  <h2>投票可能</h2>
+  <div class="time-container">
+  <h3>
+    <div class="timer" id="year"></div>
+    <div class="timer" id="month"></div>
+    <div class="timer" id="day"></div>
+    <div class="timer" id="hour"></div>
+    <div class="timer" id="min"></div>
+    <div class="timer" id="sec"></div>
+  </h3>
+  <div>
+  <br /><br />
+  <% if @vote != 0 %>
+    <div class="vote_title">あと</div>
+    <div class="vote_count">
+      <%= @vote %>
+    </div>
+    <div class="vote_title">票投稿可能</div>
+    <br />
+    <div class="select">なし</div>
+    <div class="select">なし</div>
+    <div class="select">なし</div>
+    <br />
+    <%= form_tag("/contests/#{@contest.id}/vote/new", :method => :get) do %>
+      <input type=hidden name="selected_id" class="selected_id" value=""/>
+      <%= submit_tag "作品の登録する" %>
+    <% end %>
+  <% end %>
+  <div class="row">
+    <% @products.each_with_index do |pro,i| %>
+      <% if i % 4 == 3%>
+        <div class="row">
+      <% end %>
+        <div class="col s4 m3 result-card">
+          <div class="card">
+            <div class="card-image">
+              <% if pro.image == nil %>
+                <%= image_tag asset_path('http://smooch.jp/html/noimage.jpg') %>
+              <% else %>
+                <%= image_tag asset_path(pro.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg';" %>
+              <% end %>
+            </div>
+            <div class="card-content">
+            
+              <span class="card-title">
+                <%= pro.title %>
+              </span>
+              <p>
+                <%= pro.detail %>
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="<%= pro.link %>">
+                リンク
+              </a>
+            </div>
+          </div>
+        </div>
+      <% if i % 4 == 3 %>
+        </div>
+      <% end %>
+    <% end %>

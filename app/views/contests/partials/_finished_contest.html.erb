@@ -1,0 +1,9 @@
+<%= '終了' %>
+<h2>投票不可能</h2>
+<% if products.length != 0 %>
+  <%= bar_chart chart %>
+<% else %>
+  データがありません 
+<% end %>
+
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>

@@ -1,108 +1,40 @@
 <h1>
   <%= @contest.title %>
 </h1>
-<% if Time.now > @contest.start_time and Time.now > @contest.end_time %>
-  <% if current_user != nil && current_user.id == @contest.admin_id %>
-    <%= render partial: "contests/partials/change_time" %>
-  <% end %>
-  <%= link_to "作品の投稿", "/contests/#{@contest.id}/products/new" %>
-  <h2>投票不可能</h2>
-  <div class="row">
-    <% @products.each_with_index do |pro,i| %>
-      <% if i % 4 == 3%>
-        <div class="row">
-      <% end %>
-        <div class="col s4 m3 result-card">
-          <div class="card">
-            <div class="card-image">
-              <% if pro.image == nil %>
-                <%= image_tag asset_path('http://smooch.jp/html/noimage.jpg') %>
-              <% else %>
-                <%= image_tag asset_path(pro.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg';" %>
-              <% end %>
-              <span class="card-title">
-                <%= pro.title %>
-              </span>
-            </div>
-            <div class="card-content">
-              <p>
-                <%= pro.detail %>
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="<%= pro.link %>">
-                リンク
-              </a>
-            </div>
-          </div>
-        </div>
-      <% if i % 4 == 3 %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+<% if Time.now < @contest.start_time %>
+  <%= render partial: "contests/partials/pending_contest",  locals: { products: @products,contest: @contest } %>
 <% elsif Time.now > @contest.start_time and Time.now < @contest.end_time %>
-  <%= '投票中' %>
-  <h2>投票可能</h2>
-  <% if @vote != 0 %>
-    <div class="vote_title">あと</div>
-    <div class="vote_count">
-      <%= @vote %>
-    </div>
-    <div class="vote_title">票投稿可能</div>
-    <br />
-    <div class="select">なし</div>
-    <div class="select">なし</div>
-    <div class="select">なし</div>
-    <br />
-    <%= form_tag("/contests/#{@contest.id}/vote/new", :method => :get) do %>
-      <input type=hidden name="selected_id" class="selected_id" value=""/>
-      <%= submit_tag "作品の登録する" %>
-    <% end %>
-  <% end %>
-  <div class="row">
-    <% @products.each_with_index do |pro,i| %>
-      <% if i % 4 == 3%>
-        <div class="row">
-      <% end %>
-        <div class="col s4 m3 result-card">
-          <div class="card">
-            <div class="card-image">
-              <% if pro.image == nil %>
-                <%= image_tag asset_path('http://smooch.jp/html/noimage.jpg') %>
-              <% else %>
-                <%= image_tag asset_path(pro.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg';" %>
-              <% end %>
-              <span class="card-title">
-                <%= pro.title %>
-              </span>
-            </div>
-            <div class="card-content">
-              <p>
-                <%= pro.detail %>
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="<%= pro.link %>">
-                リンク
-              </a>
-            </div>
-          </div>
-        </div>
-      <% if i % 4 == 3 %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <% else %>
-    <% if @products.length != 0 %>
-      <%= bar_chart @chart %>
-    <% else %>データがありません 
-      <%= bar_chart [['no data', 0], ['is data', 30]] %>
-    <% end %>
-  <% end %>
-</div>
+  <%= render partial: "contests/partials/standing_contest", locals: { products: @products, vote: @vote } %>
+<% else %>
+  <%= render partial: "contests/partials/finished_contest", locals: { products: @products, contest: @contest, chart: @chart } %>
+<% end %>
 <script>
+
+<% t = @contest.end_time %>
+console.log("called!!")
+end = new Date(<%= t.year %>, <%= t.month %>, <%= t.day %>, <%= t.hour %>, <%= t.min %> )
+increaseTime = function(){
+  now = new Date()
+  console.log("end time >>")
+  console.log({end: end})
+  console.log("now time >>")
+  console.log({now:now})
+  var calc = new Date(end-now);
+  console.log(calc.getUTCFullYear() - 1970 + "年");
+  $('div#year')[0].textContent = calc.getUTCFullYear() - 1970 + 'y'
+  console.log(calc.getUTCMonth() + "カ月");
+  $('div#month')[0].textContent = calc.getUTCMonth() + 'm'
+  console.log(calc.getUTCDate() - 1 + "日");
+  $('div#day')[0].textContent = calc.getUTCDate() + 'd'
+  console.log(calc.getUTCHours() + "時間");
+  $('div#hour')[0].textContent = calc.getUTCHours() + 'h'
+  console.log(calc.getUTCMinutes() + "分");
+  $('div#min')[0].textContent = calc.getUTCMinutes() + 'm'
+  console.log(calc.getUTCSeconds() + "秒");
+  $('div#sec')[0].textContent = calc.getUTCSeconds() + 's'
+}
+increaseTime()
+setInterval(increaseTime, 1000);
 
 // 指定したindexの番号を消します
 clean_select = function(index) {
@@ -166,9 +98,8 @@ $('div.card-image').on('click', function(){
   });
 </script>
 <style>
-div.vote_count, .vote_title, .select{
+div.vote_count, .vote_title, .select, div.timer{
   float:left;
-
 }
+
 </style>
-<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
