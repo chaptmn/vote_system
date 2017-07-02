@@ -60,6 +60,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # for time input
 gem 'bootstrap-sass', '> 3.3.6'
 gem 'momentjs-rails'
+gem 'compass-rails'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'devise' 
 gem 'omniauth'
