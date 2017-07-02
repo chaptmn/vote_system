@@ -1,24 +1,13 @@
 <h1>
   <%= @contest.title %>
 </h1>
-<h3>
-<%= @contest.end_time%>
-
-    <div class="timer" id="year"></div>
-    <div class="timer" id="month"></div>
-    <div class="timer" id="day"></div>
-    <div class="timer" id="hour"></div>
-    <div class="timer" id="min"></div>
-    <div class="timer" id="sec"></div>
-  </h3>
-<% if Time.now > @contest.start_time and Time.now > @contest.end_time %>
-  <%= render partial: "contests/partials/pending_contest",  locals: { products: @products, contest: @contest } %>
+<% if Time.now < @contest.start_time %>
+  <%= render partial: "contests/partials/pending_contest",  locals: { products: @products,contest: @contest } %>
 <% elsif Time.now > @contest.start_time and Time.now < @contest.end_time %>
   <%= render partial: "contests/partials/standing_contest", locals: { products: @products, contest: @contest, vote: @vote } %>
 <% else %>
   <%= render partial: "contests/partials/finished_contest", locals: { products: @products, contest: @contest, chart: @chart } %>
 <% end %>
-
 <script>
 
 <% t = @contest.end_time %>
