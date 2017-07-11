@@ -24,11 +24,11 @@
     <br />
     <%= form_tag("/contests/#{@contest.id}/vote/new", :method => :get) do %>
       <input type=hidden name="selected_id" class="selected_id" value=""/>
-      <%= submit_tag "作品の登録する" %>
+      <%= submit_tag "投票する" %>
     <% end %>
   <% end %>
   <div class="row">
-    <% @products.each_with_index do |pro,i| %>
+    <% products.each_with_index do |pro,i| %>
       <% if i % 4 == 3%>
         <div class="row">
       <% end %>

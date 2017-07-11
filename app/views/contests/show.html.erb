@@ -1,15 +1,18 @@
 <h1>
   <%= @contest.title %>
 </h1>
+<% #開始前 %>
 <% if Time.now < @contest.start_time %>
-  <%= render partial: "contests/partials/pending_contest",  locals: { products: @products,contest: @contest } %>
+  <%= render partial: "contests/partials/pending_contest",  locals: { products: @products, contest: @contest } %>
+<% #投票中 %>
 <% elsif Time.now > @contest.start_time and Time.now < @contest.end_time %>
-  <%= render partial: "contests/partials/standing_contest", locals: { products: @products, vote: @vote } %>
+  <%= render partial: "contests/partials/standing_contest", locals: { products: @products, contest: @contest, vote: @vote } %>
 <% else %>
+<% #結果の表示 %>
   <%= render partial: "contests/partials/finished_contest", locals: { products: @products, contest: @contest, chart: @chart } %>
 <% end %>
-<script>
 
+<script>
 <% t = @contest.end_time %>
 console.log("called!!")
 end = new Date(<%= t.year %>, <%= t.month %>, <%= t.day %>, <%= t.hour %>, <%= t.min %> )
@@ -97,9 +100,3 @@ $('div.card-image').on('click', function(){
     });
   });
 </script>
-<style>
-div.vote_count, .vote_title, .select, div.timer{
-  float:left;
-}
-
-</style>
