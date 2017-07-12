@@ -1,7 +1,7 @@
 <% if current_user != nil && current_user.id == contest.admin_id %>
     <%= render partial: "contests/partials/change_time" %>
   <% end %>
-  <%= link_to "作品の投稿", "/contests/#{@contest.id}/products/new" %>
+  <%= link_to "作品の投稿", "/contests/#{@contest.id}/products/new", class: "product_register_btn" %>
   <h2>投票不可能</h2>
   <div class="row">
     <% @products.each_with_index do |pro,i| %>
