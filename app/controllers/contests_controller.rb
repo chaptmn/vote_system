@@ -7,7 +7,7 @@ class ContestsController < ApplicationController
   end
 
   def new
-      @contest = Contest.new
+    @contest = Contest.new
   end
 
   def show

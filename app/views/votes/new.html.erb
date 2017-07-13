@@ -1,6 +1,6 @@
 
 <%#materializeを使ってカード型にしてその下フォームをくっつける感じかな？%>
-<%= i = 0 %>
+<% i = 0 %>
   <%= form_for(@vote,:url => {:controller => :votes, :action => :create}) do |f| %>
     <% @products.each do |pro| %>
         <% i+= 1 %>
