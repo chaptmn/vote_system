@@ -8,7 +8,7 @@
         <%= fields_for "vote[]", @vote do |fi| %>
             <%= pro.id %>
             <%= pro.title %>
-            <%= image_tag asset_path(pro.image) %>
+            <%= image_tag asset_path(pro.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg'" %>
             <%= fi.hidden_field :contest_id, :value => pro.contest_id %>
             <%= fi.hidden_field :product_id, :value => pro.id %>
             <%= fi.hidden_field :user_id, :value => @user.id %>
