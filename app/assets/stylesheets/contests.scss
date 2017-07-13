@@ -21,3 +21,17 @@ div.vote_count, .vote_title, .select, div.timer{
   background: #1eeb89;
   color: #fff; 
 }
+
+.card-list {
+  display: flex;
+}
+._card {
+  width: 50px;
+  text-align: center;   
+  background-color: #f0f0f0;
+}
+.comma {
+  width: 10px;
+  text-align: center;   
+  background-color: #f0f0f0;    
+}
