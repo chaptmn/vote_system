@@ -1,12 +1,33 @@
-
-<div>
-  <h1><%= @product.title %></h1>
-  <%= image_tag(@product.image) %>
-  <p><%= link_to @product.link,@product.link %></p>
-<div/>
+<div class="col s12 m7">
+    <div class="card horizontal">
+      <div class="card-image">
+        <%= image_tag asset_path(@product.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg'" %>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <div class="card-title">
+            <%= @product.title %>
+          </div>
+          <p><%= @product.detail %></p>
+        </div>
+        <div class="card-action">
+          <%= link_to @product.link, @product.link %>
+        </div>
+      </div>
+    </div>
+  </div>
 <div>
 <h2>コメント一覧</h2>
+
+<ul class="collection">
 <% @votes.each do |vote| %>
-  <%= vote.user.name %>:<%= vote.reason %><br>
+    <li class="collection-item avatar">
+      <%= image_tag asset_path(@product.image),:class => "circle", :onerror => "this.src='http://smooch.jp/html/noimage.jpg'" %>
+      <span class="title"><%= vote.user.name %></span>
+      <p>
+         <%= vote.reason %>
+      </p>
+    </li>
 <% end %>
+  </ul>
 <div/>
