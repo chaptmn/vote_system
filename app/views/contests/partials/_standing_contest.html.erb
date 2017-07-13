@@ -1,5 +1,10 @@
 <%= '投票中' %>
-  <h2>投票可能</h2>
+
+  <% if @vote >= 0 %>
+    <h2>投票可能</h2>
+  <% else %>
+    <h2>投票不可能</h2>
+  <% end %>
   <div class="time-container">
   <h3>
     <div class="timer" id="year"></div>
@@ -11,7 +16,7 @@
   </h3>
   <div>
   <br /><br />
-  <% if @vote != 0 %>
+  <% if @vote >= 0 %>
     <div class="vote_title">あと</div>
     <div class="vote_count">
       <%= @vote %>
