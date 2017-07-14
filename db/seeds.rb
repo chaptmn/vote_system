@@ -18,9 +18,9 @@ end
 print " >> DONE \n"
 
 print "=== Contestの作成中 ==="
-Contest.create({id: 1, admin_id: 1, title:'第一回エンジニア合宿評価シート(開始前)', detail:'評価してください', start_time:Time.now - 1.day - 1.hour , end_time:Time.now - 1.day})
-Contest.create({id: 2, admin_id: 1, title:'第一回エンジニア合宿評価シート(集計中)', detail:'評価してください', start_time:Time.now - 1.day, end_time:Time.now + 1.day})
-Contest.create({id: 3, admin_id: 1, title:'第一回エンジニア合宿評価シート(終了)'  , detail:'評価してください', start_time:Time.now + 1.day, end_time:Time.now + 1.day + 1.hour})
+Contest.create({id: 1, admin_id: 1, title:'第一回エンジニア合宿評価シート(集計中)', detail:'評価してください', start_time:Time.now - 1.day, end_time:Time.now + 1.day})
+Contest.create({id: 2, admin_id: 1, title:'第一回エンジニア合宿評価シート(終了)'  , detail:'評価してください', start_time:Time.now + 1.day, end_time:Time.now + 1.day + 1.hour})
+Contest.create({id: 3, admin_id: 1, title:'第一回エンジニア合宿評価シート(開始前)', detail:'評価してください', start_time:Time.now - 1.day - 1.hour , end_time:Time.now - 1.day})
 print " >> DONE \n"
 
 print "=== Productの作成中 ==="
@@ -40,6 +40,13 @@ print " >> DONE \n"
 
 print "=== Voteの作成中 ==="
 id = 0
+for user_id in 2..user_limit do
+  for i in 0..rand(4)
+    product_id = contest_products[contest_id-1] - 1
+    Vote.create({id:id, user_id:user_id, product_id: product_id, contest_id: 1, reason: 'thank you!'})
+    id += 1
+  end
+end
 for contest_id in 2..3 do
   ## length is + 1
   products_before = contest_products[0..(contest_id-1)].sum
@@ -47,7 +54,6 @@ for contest_id in 2..3 do
   for user_id in 2..user_limit do
     for i in 0..rand(4)
       product_id = rand(products_now) + products_before
-      p product_id
       Vote.create({id:id, user_id:user_id, product_id: product_id, contest_id: contest_id, reason: 'thank you!'})
       id += 1
     end
