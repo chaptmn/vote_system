@@ -32,7 +32,7 @@ increaseTime = function(){
   $('div#month')[0].textContent = (calc.getUTCMonth() - 1 > 0 ? calc.getUTCMonth() - 1 + 'ヶ月' : '')
   console.log(calc.getUTCDate() + "日");
   flag = flag || calc.getUTCDate() <= 0
-  $('div#day')[0].textContent = (calc.getUTCDate() - 1 > 0 ? calc.getUTCDate() + '日' : '')
+  $('div#day')[0].textContent = (calc.getUTCDate() - 1 > 0 ? calc.getUTCDate() - 1 + '日' : '')
 
   if(flag)
   $('div#title')[0].textContent = '投票終了まで'
