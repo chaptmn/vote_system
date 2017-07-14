@@ -27,12 +27,12 @@ increaseTime = function(){
   console.log(calc.getUTCFullYear() - 1970 + "年");
   flag = flag || calc.getUTCFullYear() - 1970 <= 0
   $('div#year')[0].textContent = (calc.getUTCFullYear() - 1970 <= 0 ? '' : calc.getUTCFullYear() - 1970 + '年')
-  console.log(calc.getUTCMonth() + "カ月");
-  flag = flag || calc.getUTCMonth() <= 0
-  $('div#month')[0].textContent = (calc.getUTCMonth() > 0 ? calc.getUTCMonth() + 'ヶ月' : '')
-  console.log(calc.getUTCDate() - 1 + "日");
+  console.log(calc.getUTCMonth() - 1 + "カ月");
+  flag = flag || calc.getUTCMonth() - 1 <= 0
+  $('div#month')[0].textContent = (calc.getUTCMonth() - 1 > 0 ? calc.getUTCMonth() - 1 + 'ヶ月' : '')
+  console.log(calc.getUTCDate() + "日");
   flag = flag || calc.getUTCDate() <= 0
-  $('div#day')[0].textContent = (calc.getUTCDate() - 1 > 0 ? calc.getUTCDate() - 1 + '日' : '')
+  $('div#day')[0].textContent = (calc.getUTCDate() - 1 > 0 ? calc.getUTCDate() + '日' : '')
 
   if(flag)
   $('div#title')[0].textContent = '投票終了まで'
