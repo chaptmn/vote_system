@@ -1,8 +1,0 @@
-<h1>Google OAuth2 Test</h1>
-
-<p>app/views/welcome/index.html.erb</p>
-
-<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
-id:  <%= Rails.application.secrets.google_client_id %>
-
-<%= link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path(:google_oauth2) %>
