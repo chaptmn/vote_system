@@ -7,3 +7,9 @@
 <% end %>
 
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
+  <div class="collection">
+<% @products.sort{|a,b| b.votes.count <=> a.votes.count}.each do |pro|  %>
+    <a href="<%= result_contest_product_path(pro.id) %>" class="collection-item"><span class="badge"><%= pro.votes.count %></span><%= pro.title %></a>
+<% end %>
+  </div>
