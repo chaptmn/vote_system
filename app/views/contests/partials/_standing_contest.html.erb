@@ -1,7 +1,9 @@
 <%= '投票中' %>
 
-  <% if @vote >= 0 %>
+  <% if @vote > 0 %>
     <h2>投票可能</h2>
+  <% elsif @user.nil? %>
+    <h2>投票不可能 : ユーザーログインしてください</h2>
   <% else %>
     <h2>投票不可能</h2>
   <% end %>
@@ -31,7 +33,7 @@
 
   <div>
   <br /><br />
-  <% if @vote >= 0 %>
+  <% if @vote > 0 %>
     <div class="vote_title">あと</div>
     <div class="vote_count">
       <%= @vote %>
