@@ -47,6 +47,12 @@ class ContestsController < ApplicationController
   def edit
   end
 
+  def update
+    @contest = Contest.find_by(id: params[:id])
+    @contest.update_attribute(:start_time,params[:start_time])
+    redirect_to contest_path(params[:id]) 
+  end
+
   private
     def set_contest
       @contest = Contest.find(params[:id])
