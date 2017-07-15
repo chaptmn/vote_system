@@ -85,3 +85,89 @@
         </div>
       <% end %>
     <% end %>
+<script>
+<% t = @contest.end_time %>
+console.log("called!!")
+end = new Date(<%= t.year %>, <%= t.month %>, <%= t.day %>, <%= t.hour %>, <%= t.min %> )
+increaseTime = function(){
+  now = new Date()
+  console.log("end time >>")
+  console.log({end: end})
+  console.log("now time >>")
+  console.log({now:now})
+  var calc = new Date(end-now);
+  var flag = false;
+  console.log(calc.getUTCFullYear() - 1970 + "年");
+  flag = flag || calc.getUTCFullYear() - 1970 <= 0
+  $('div#year')[0].textContent = (calc.getUTCFullYear() - 1970 <= 0 ? '' : calc.getUTCFullYear() - 1970 + '年')
+  console.log(calc.getUTCMonth() - 1 + "カ月");
+  flag = flag || calc.getUTCMonth() - 1 <= 0
+  $('div#month')[0].textContent = (calc.getUTCMonth() - 1 > 0 ? calc.getUTCMonth() - 1 + 'ヶ月' : '')
+  console.log(calc.getUTCDate() + "日");
+  flag = flag || calc.getUTCDate() <= 0
+  $('div#day')[0].textContent = (calc.getUTCDate() - 1 > 0 ? calc.getUTCDate() - 1 + '日' : '')
+
+  if(flag)
+  $('div#title')[0].textContent = '投票終了まで'
+  console.log(calc.getUTCHours() + "時間");
+  $('div#hour')[0].textContent = calc.getUTCHours()
+  console.log(calc.getUTCMinutes() + "分");
+  $('div#min')[0].textContent = calc.getUTCMinutes()
+  console.log(calc.getUTCSeconds() + "秒");
+  $('div#sec')[0].textContent = calc.getUTCSeconds()
+}
+increaseTime()
+setInterval(increaseTime, 1000);
+
+// 指定したindexの番号を消します
+clean_select = function(index) {
+  for(var i = 0 ; i < 1 ; i ++){
+    if($('div.select')[i].textContent == index + 1){
+      $('div.select')[i].textContent = 'なし'
+    }
+  }
+}
+
+// 
+pack_select = function() {
+  var now, str = '';
+  for(var i = 0, now = 0 ; i < 1 ; i ++){
+    if($('div.select')[i].textContent != 'なし'){
+      $('div.select')[now].textContent = $('div.select')[i].textContent
+      str += $('div.select')[i].textContent + ', '
+      now ++
+    }      
+  }
+  console.log(str)
+
+  $('input.selected_id')[0].value = str
+  console.log($('input.selected_id')[0].value)
+  for( ; now < 1 ; now ++){
+    $('div.select')[now].textContent = 'なし'
+  }
+}
+
+$('div.card-image').on('click', function(){
+  point = Number($('div.vote_count')[0].textContent)
+  var index = $('div.card-image').index(this);
+  if(!$(this).hasClass('active')){ // 選択する
+    console.log([point, index])
+    $('div.select')[1-point].textContent = index + 1
+    if(point != 0){
+      $(this).parent().css("border", "1px solid #ff0000")
+      $(this).toggleClass('active')
+      point --
+    }
+  } else { // 選択を外す
+    clean_select(index)
+    $(this).parent().css("border", "none")
+    $(this).toggleClass('active')
+    point ++
+  }
+  pack_select()
+  console.log(index + 'th item clicked!');
+  console.log(point)
+  $('div.vote_count')[0].textContent = point
+});
+
+</script>
