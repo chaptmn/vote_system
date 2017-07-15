@@ -6,8 +6,7 @@ module UserHelper
        #debug用本番の時はいらない
        link_to 'セッション削除', user_logout_path, :method => :delete
      else
-       "ユーザー名: " + current_user.name 
+       "user: " + current_user.name
      end 
   end
-
 end
