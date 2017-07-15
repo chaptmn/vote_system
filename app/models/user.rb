@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   #ユーザが既にアプリケーションの中で認知されているかどうか
   def self.find_for_google(auth)
-    user = User.find_by(uid: auth.info.email)
+    user = User.find_by(email: auth.info.email)
     unless user
     user = User.create(name: auth.info.name,
                        email: auth.info.email,
