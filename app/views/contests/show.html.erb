@@ -48,7 +48,7 @@ setInterval(increaseTime, 1000);
 
 // 指定したindexの番号を消します
 clean_select = function(index) {
-  for(var i = 0 ; i < 3 ; i ++){
+  for(var i = 0 ; i < 1 ; i ++){
     if($('div.select')[i].textContent == index + 1){
       $('div.select')[i].textContent = 'なし'
     }
@@ -58,7 +58,7 @@ clean_select = function(index) {
 // 
 pack_select = function() {
   var now, str = '';
-  for(var i = 0, now = 0 ; i < 3 ; i ++){
+  for(var i = 0, now = 0 ; i < 1 ; i ++){
     if($('div.select')[i].textContent != 'なし'){
       $('div.select')[now].textContent = $('div.select')[i].textContent
       str += $('div.select')[i].textContent + ', '
@@ -69,7 +69,7 @@ pack_select = function() {
 
   $('input.selected_id')[0].value = str
   console.log($('input.selected_id')[0].value)
-  for( ; now < 3 ; now ++){
+  for( ; now < 1 ; now ++){
     $('div.select')[now].textContent = 'なし'
   }
 }
@@ -79,7 +79,7 @@ $('div.card-image').on('click', function(){
   var index = $('div.card-image').index(this);
   if(!$(this).hasClass('active')){ // 選択する
     console.log([point, index])
-    $('div.select')[3-point].textContent = index + 1
+    $('div.select')[1-point].textContent = index + 1
     if(point != 0){
       $(this).parent().css("border", "1px solid #ff0000")
       $(this).toggleClass('active')
