@@ -17,7 +17,7 @@ class ContestsController < ApplicationController
       @vote = 0
     else
       @user = User.find(current_user.id)
-      @vote = 3 - @user.votes.count
+      @vote = 3 - @user.votes.where(contest_id: @contest.id).count
     end
     @chart = @products.map{|pro|
       ["#{pro.title} #{pro.votes.count} 票", pro.votes.count]
