@@ -32,7 +32,7 @@ for contest_id in 1..3
   contest_products << products
   p "contest_products #{products}"
   for idx in 1..products
-    Product.create({id:id , user_id:rand(50), contest_id:contest_id, title:"rails投票#{idx}", detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})  
+    Product.create({id:id , user_id:rand(50), contest_id:contest_id, title:"rails投票#{id}", detail:'頑張って作りました。', image:'https://dzwud19fd1isz.cloudfront.net/images/dog_img_miniature-dachshund.jpg', link:'https://www.min-inuzukan.com/'})  
     id += 1
   end
 end
