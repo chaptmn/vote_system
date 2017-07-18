@@ -58,7 +58,7 @@
       <% end %>
         <div class="col s4 m3 result-card">
           <div class="card">
-            <div class="card-image">
+            <div class="card-image" id="<%= pro.id %>">
               <% if pro.image == nil %>
                 <%= image_tag asset_path('http://smooch.jp/html/noimage.jpg') %>
               <% else %>
@@ -87,33 +87,32 @@
     <% end %>
 <script>
 <% t = @contest.end_time %>
-console.log("called!!")
 end = new Date(<%= t.year %>, <%= t.month %>, <%= t.day %>, <%= t.hour %>, <%= t.min %> )
 increaseTime = function(){
   now = new Date()
-  console.log("end time >>")
-  console.log({end: end})
-  console.log("now time >>")
-  console.log({now:now})
+  // console.log("end time >>")
+  // console.log({end: end})
+  // console.log("now time >>")
+  // console.log({now:now})
   var calc = new Date(end-now);
   var flag = false;
-  console.log(calc.getUTCFullYear() - 1970 + "年");
+  // console.log(calc.getUTCFullYear() - 1970 + "年");
   flag = flag || calc.getUTCFullYear() - 1970 <= 0
   $('div#year')[0].textContent = (calc.getUTCFullYear() - 1970 <= 0 ? '' : calc.getUTCFullYear() - 1970 + '年')
-  console.log(calc.getUTCMonth() - 1 + "カ月");
+  // console.log(calc.getUTCMonth() - 1 + "カ月");
   flag = flag || calc.getUTCMonth() - 1 <= 0
   $('div#month')[0].textContent = (calc.getUTCMonth() - 1 > 0 ? calc.getUTCMonth() - 1 + 'ヶ月' : '')
-  console.log(calc.getUTCDate() + "日");
+  // console.log(calc.getUTCDate() + "日");
   flag = flag || calc.getUTCDate() <= 0
   $('div#day')[0].textContent = (calc.getUTCDate() - 1 > 0 ? calc.getUTCDate() - 1 + '日' : '')
 
   if(flag)
   $('div#title')[0].textContent = '投票終了まで'
-  console.log(calc.getUTCHours() + "時間");
+  // console.log(calc.getUTCHours() + "時間");
   $('div#hour')[0].textContent = calc.getUTCHours()
-  console.log(calc.getUTCMinutes() + "分");
+  // console.log(calc.getUTCMinutes() + "分");
   $('div#min')[0].textContent = calc.getUTCMinutes()
-  console.log(calc.getUTCSeconds() + "秒");
+  // console.log(calc.getUTCSeconds() + "秒");
   $('div#sec')[0].textContent = calc.getUTCSeconds()
 }
 increaseTime()
@@ -149,10 +148,11 @@ pack_select = function() {
 
 $('div.card-image').on('click', function(){
   point = Number($('div.vote_count')[0].textContent)
-  var index = $('div.card-image').index(this);
+
+  var index = $(this).context.id
   if(!$(this).hasClass('active')){ // 選択する
     console.log([point, index])
-    $('div.select')[1-point].textContent = index + 1
+    $('div.select')[1-point].textContent = index
     if(point != 0){
       $(this).parent().css("border", "1px solid #ff0000")
       $(this).toggleClass('active')
