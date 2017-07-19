@@ -1,55 +1,16 @@
 <script>
 
-// 指定したindexの番号を消します
-clean_select = function(index) {
-  for(var i = 0 ; i < 1 ; i ++){
-    if($('div.select')[i].textContent == index + 1){
-      $('div.select')[i].textContent = 'なし'
-    }
-  }
-}
-
-// 
-pack_select = function() {
-  var now, str = '';
-  for(var i = 0, now = 0 ; i < 1 ; i ++){
-    if($('div.select')[i].textContent != 'なし'){
-      $('div.select')[now].textContent = $('div.select')[i].textContent
-      str += $('div.select')[i].textContent + ', '
-      now ++
-    }      
-  }
-  console.log(str)
-
-  $('input.selected_id')[0].value = str
-  console.log($('input.selected_id')[0].value)
-  for( ; now < 1 ; now ++){
-    $('div.select')[now].textContent = 'なし'
-  }
-}
-
 $('div.card-image').on('click', function(){
-  point = Number($('div.vote_count')[0].textContent)
-
-  var index = $(this).context.id
-  if(!$(this).hasClass('active')){ // 選択する
-    console.log([point, index])
-    $('div.select')[1-point].textContent = index
-    if(point != 0){
-      $(this).parent().css("border", "1px solid #ff0000")
-      $(this).toggleClass('active')
-      point --
-    }
-  } else { // 選択を外す
-    clean_select(index)
-    $(this).parent().css("border", "none")
-    $(this).toggleClass('active')
-    point ++
+  console.log({id: $('input.selected_id')})
+  console.log($('input.selected_id'))
+  point = $('input.selected_id')[0].value
+  cards = document.getElementsByClassName('card')
+  for(var i = 0 ; i < cards.length ; i ++){
+    $(cards[i]).css("border", "1px none #ff0000")
   }
-  pack_select()
-  console.log(index + 'th item clicked!');
-  console.log(point)
-  $('div.vote_count')[0].textContent = point
+
+  $('input.selected_id')[0].value = $(this).context.id
+  $(this).parent().css("border", "1px solid #ff0000")
 });
 
 </script>
