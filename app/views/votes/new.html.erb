@@ -4,23 +4,22 @@
 
 <% i = 0 %>
   <%= form_for(@vote,:url => {:controller => :votes, :action => :create}) do |f| %>
-    <% @products.each do |pro| %>
     <% i+= 1 %>
     <div class="col s12 m7">
         <div class="card horizontal">
           <div class="card-image">
-            <%= image_tag asset_path(pro.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg'" %>
+            <%= image_tag asset_path(@product.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg'" %>
           </div>
           <div class="card-stacked">
             <div class="card-content">
               <div class="card-title">
-                <%= pro.title %>
+                <%= @product.title %>
               </div>
-              <p><%= pro.detail %></p>
+              <p><%= @product.detail %></p>
             
                 <%= fields_for "vote[]", @vote do |fi| %>
-                    <%= fi.hidden_field :contest_id, :value => pro.contest_id %>
-                    <%= fi.hidden_field :product_id, :value => pro.id %>
+                    <%= fi.hidden_field :contest_id, :value => @product.contest_id %>
+                    <%= fi.hidden_field :product_id, :value => @product.id %>
                     <%= fi.hidden_field :user_id, :value => @user.id %>
                 
                   <div class="row">
@@ -35,17 +34,16 @@
             </div>
             <div class="card-action">
               リンク : 
-              <% if pro.link.nil? %>
+              <% if @product.link.nil? %>
                 なし
               <% else %>
-                <%= link_to pro.link, pro.link %>
+                <%= link_to @product.link, @product.link %>
               <% end %>
             </div>
           </div>
         </div>
       </div>
     <div>
-    <% end %>
     <div class="center">
     <%= f.submit "投票！", :class => "btn waves-effect orange lighten-2" %>
     </div>
