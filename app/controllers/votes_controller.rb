@@ -6,9 +6,8 @@ class VotesController < ApplicationController
     if params[:selected_id].size == 0
       redirect_to controller: 'contests', action: 'show', id: params[:contest_id]
     end
-    ids = params['selected_id'].split(',')[0...-1]
-    p ids
-    @products = ids.map{ |id| Product.find(id)}
+    id = params['selected_id']
+    @product = Product.find(id)
     @user = login_user
     @vote = Vote.new
   end
