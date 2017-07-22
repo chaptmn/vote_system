@@ -1,11 +1,11 @@
-<% if current_user != nil && current_user.id == contest.admin_id %>
-  <%= render partial: "contests/partials/change_time" %>
-<% end %>
 <%= contest.start_time.strftime("%m/%d %H:%M") %> - 
 <%= contest.end_time.strftime("%m/%d %H:%M") %> 
+<% if current_user != nil && current_user.id == contest.admin_id %>
+  <%= render partial: "contests/partials/change_time" %>
+  <%= link_to "作品の投稿", "/contests/#{@contest.id}/products/new", class: "product_register_btn" %>
+<% end %>
 <h2>投票不可能</h2>
 
-<%= link_to "作品の投稿", "/contests/#{@contest.id}/products/new", class: "product_register_btn" %>
   <div class="row">
     <% @products.each_with_index do |pro,i| %>
       <% if i % 4 == 3%>
