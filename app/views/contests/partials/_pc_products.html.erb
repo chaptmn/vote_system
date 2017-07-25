@@ -1,0 +1,35 @@
+<div class="row">
+    <% products.each_with_index do |pro,i| %>
+      <% if i % 4 == 3%>
+        <div class="row">
+      <% end %>
+        <div class="col s4 m3 result-card">
+          <div class="card small">
+            <div class="card-image" id="<%= pro.id %>">
+              <% if pro.image == nil %>
+                <%= image_tag asset_path('http://smooch.jp/html/noimage.jpg') %>
+              <% else %>
+                <%= image_tag asset_path(pro.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg';" %>
+              <% end %>
+            </div>
+            <div class="card-content">
+            
+              <span class="card-title">
+                <%= pro.title %>
+              </span>
+              <p>
+                <%= pro.detail %>
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="<%= pro.link %>">
+                リンク
+              </a>
+            </div>
+          </div>
+        </div>
+      <% if i % 4 == 3 %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>

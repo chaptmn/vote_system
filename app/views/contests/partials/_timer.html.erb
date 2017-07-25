@@ -1,6 +1,6 @@
 <script>
 <% t = @contest.end_time %>
-end = new Date(<%= t.year %>, <%= t.month %>, <%= t.day %>, <%= t.hour %>, <%= t.min %> )
+end = new Date(<%= t.year %>, <%= t.month %> - 1, <%= t.day %>, <%= t.hour %>, <%= t.min %> )
 increaseTime = function(){
   now = new Date()
   // console.log("end time >>")
@@ -13,8 +13,8 @@ increaseTime = function(){
   flag = flag || calc.getUTCFullYear() - 1970 <= 0
   $('div#year')[0].textContent = (calc.getUTCFullYear() - 1970 <= 0 ? '' : calc.getUTCFullYear() - 1970 + '年')
   // console.log(calc.getUTCMonth() - 1 + "カ月");
-  flag = flag || calc.getUTCMonth() - 1 <= 0
-  $('div#month')[0].textContent = (calc.getUTCMonth() - 1 > 0 ? calc.getUTCMonth() - 1 + 'ヶ月' : '')
+  flag = flag || calc.getUTCMonth() <= 0
+  $('div#month')[0].textContent = (calc.getUTCMonth() > 0 ? calc.getUTCMonth() + 'ヶ月' : '')
   // console.log(calc.getUTCDate() + "日");
   flag = flag || calc.getUTCDate() <= 0
   $('div#day')[0].textContent = (calc.getUTCDate() - 1 > 0 ? calc.getUTCDate() - 1 + '日' : '')
@@ -27,6 +27,9 @@ increaseTime = function(){
   $('div#min')[0].textContent = calc.getUTCMinutes()
   // console.log(calc.getUTCSeconds() + "秒");
   $('div#sec')[0].textContent = calc.getUTCSeconds()
+  if(calc.getUTCFullYear()  - 1970 < 0){
+    location.reload();
+  } 
 }
 increaseTime()
 setInterval(increaseTime, 1000);

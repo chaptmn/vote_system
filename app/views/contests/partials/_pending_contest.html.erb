@@ -6,35 +6,10 @@
 <% end %>
 <h2>投票不可能</h2>
 
-  <div class="row">
-    <% @products.each_with_index do |pro,i| %>
-      <% if i % 4 == 3%>
-        <div class="row">
-      <% end %>
-        <div class="col s4 m3 result-card">
-          <div class="card">
-            <div class="card-image">
-              <% if pro.image == nil %>
-                <%= image_tag asset_path('http://smooch.jp/html/noimage.jpg') %>
-              <% else %>
-                <%= image_tag asset_path(pro.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg';" %>
-              <% end %>
-            </div>
-            <div class="card-title">
-              <%= pro.title %>
-            </div>
-            <div class="card-content">
-              <p>
-                <%= pro.detail %>
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="<%= pro.link %>"><%= pro.link %></a>
-            </div>
-          </div>
-        </div>
-      <% if i % 4 == 3 %>
-        </div>
-      <% end %>
-    <% end %>
+   
+  <div class="hide-on-small-only"><!-- # for pc or tablet -->
+  <%= render partial: "contests/partials/pc_products", locals: { products: products } %>
+  </div>
+  <div class="hide-on-med-and-up"><!-- # for smart phone -->
+  <%= render partial: "contests/partials/smartphone_products", locals: { products: products } %>
   </div>
