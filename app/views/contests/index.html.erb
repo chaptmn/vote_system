@@ -1,5 +1,6 @@
 
 <h1>コンテスト一覧</h1>
+<%= ENV['GOOGLE_APP_ID'] %>
 <h3><%= link_to "コンテスト新規作成", :controller => "contests", :action => "new" %></h3>
 <div class="row">
   <% @contests.each do |contest| %>
