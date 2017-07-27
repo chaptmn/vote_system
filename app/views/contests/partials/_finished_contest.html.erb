@@ -1,4 +1,4 @@
-<% if current_user != nil && current_user.id == contest.admin_id %>
+<% if current_user != nil && current_user.id == contest.admin_user_id %>
   <%= render partial: "contests/partials/change_end_time" %>
 <% end %>
 <%= contest.start_time.strftime("%m/%d %H:%M") %> - 

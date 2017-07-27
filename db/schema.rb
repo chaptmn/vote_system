@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622083920) do
+ActiveRecord::Schema.define(version: 20170727165703) do
 
   create_table "contests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "admin_id",                 null: false
-    t.string   "title",                    null: false
-    t.text     "detail",     limit: 65535
-    t.datetime "start_time",               null: false
-    t.datetime "end_time",                 null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "admin_user_id",               null: false
+    t.string   "title",                       null: false
+    t.text     "detail",        limit: 65535
+    t.datetime "start_time",                  null: false
+    t.datetime "end_time",                    null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -18,9 +18,9 @@ end
 print " >> DONE \n"
 
 print "=== Contestの作成中 ==="
-Contest.create({id: 1, admin_id: 1, title:'第一回エンジニア合宿評価シート(集計中)', detail:'評価してください', start_time:Time.now - 1.day, end_time:Time.now + 1.day})
-Contest.create({id: 2, admin_id: 1, title:'第一回エンジニア合宿評価シート(終了)'  , detail:'評価してください', start_time:Time.now + 1.day, end_time:Time.now + 1.day + 1.hour})
-Contest.create({id: 3, admin_id: 1, title:'第一回エンジニア合宿評価シート(開始前)', detail:'評価してください', start_time:Time.now - 1.day - 1.hour , end_time:Time.now - 1.day})
+Contest.create({id: 1, admin_user_id: 1, title:'第一回エンジニア合宿評価シート(集計中)', detail:'評価してください', start_time:Time.now - 1.day, end_time:Time.now + 1.day})
+Contest.create({id: 2, admin_user_id: 1, title:'第一回エンジニア合宿評価シート(終了)'  , detail:'評価してください', start_time:Time.now + 1.day, end_time:Time.now + 1.day + 1.hour})
+Contest.create({id: 3, admin_user_id: 1, title:'第一回エンジニア合宿評価シート(開始前)', detail:'評価してください', start_time:Time.now - 1.day - 1.hour , end_time:Time.now - 1.day})
 print " >> DONE \n"
 
 print "=== Productの作成中 ==="
