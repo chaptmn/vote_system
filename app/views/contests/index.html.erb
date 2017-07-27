@@ -8,8 +8,8 @@
       <%= link_to contest do %>
         <div class="card-panel orange lighten-5">
           <h3><%= contest.title %></h3>
-            <%= contest.start_time.strftime("%m/%d %H:%M") %> - 
-            <%= contest.end_time.strftime("%m/%d %H:%M") %> 
+            <%= contest.start_time.to_datetime.strftime("%m/%d %H:%M") %> - 
+            <%= contest.end_time.to_datetime.strftime("%m/%d %H:%M") %> 
           <div class="tags">
             <div class="chip <%= contest_status_tag(contest) %> lighten-4">
               <%= contest_status(contest) %>
