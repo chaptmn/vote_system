@@ -8,6 +8,12 @@
   <% else %>
     <h2>ご投票ありがとうございました</h2>
   <% end %>
+  <% if current_user != nil && current_user.id == contest.admin_id %>
+      <div style="background-color: #eee; padding: 1.2em">
+        <strong>管理者機能</strong><br>
+        <%= render partial: "contests/partials/change_end_time" %>
+      </div>
+  <% end %>
   <div class="time-container">
   <h3>
     <div class="card-list">
