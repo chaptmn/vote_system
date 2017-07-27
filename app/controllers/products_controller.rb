@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save!
+    @product.save
     redirect_to contest_path(params[:contest_id])
   end
 
