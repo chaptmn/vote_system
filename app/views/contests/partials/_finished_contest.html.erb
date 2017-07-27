@@ -1,15 +1,19 @@
+投票期間: <%= contest.start_time.to_datetime.strftime("%Y/%-m/%-d %-H:%M") %> -
+<%= contest.end_time.to_datetime.strftime("%Y/%-m/%-d %-H:%M") %>
 <% if current_user != nil && current_user.id == contest.admin_id %>
+    <div style="background-color: #eee; padding: 1.2em">
+      <strong>管理者機能</strong><br>
   <%= render partial: "contests/partials/change_end_time" %>
+    </div>
 <% end %>
-<%= contest.start_time.to_datetime.strftime("%m/%d %H:%M") %> - 
-<%= contest.end_time.to_datetime.strftime("%m/%d %H:%M") %> 
-<h2>投票不可能</h2>
+
+<h2>投票期間は終了しました</h2>
 
 <%= '終了' %>
 <% if products.length != 0 %>
   <%= bar_chart chart %>
 <% else %>
-  データがありません 
+  データがありません
 <% end %>
 
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>

@@ -1,6 +1,5 @@
-
-  <%= form_for(@contest) do |f| %>
-    <label>開始時間の入力</label>
-    <input type="datetime-local" name="start_time" class="datepicker">   
-    <%= f.submit '時間の変更' %>
-  <% end %>
+<%= form_for(@contest) do |f| %>
+  <label>投票開始日時の変更</label>
+  <input type="datetime-local" name="start_time" class="datepicker">
+  <%= f.submit '  変更  ' %>
+<% end %>

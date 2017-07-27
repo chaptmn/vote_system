@@ -1,13 +1,12 @@
-<%= '投票中' %>
-<%= contest.start_time.to_datetime.strftime("%m/%d %H:%M") %> - 
-<%= contest.end_time.to_datetime.strftime("%m/%d %H:%M") %> 
+投票期間: <%= contest.start_time.to_datetime.strftime("%Y/%-m/%-d %-H:%M") %> -
+<%= contest.end_time.to_datetime.strftime("%Y/%-m/%-d %-H:%M") %>
 
   <% if @vote > 0 %>
-    <h2>投票可能</h2>
+    <h2>投票してください</h2>
   <% elsif @user.nil? %>
-    <h2>投票不可能 : ユーザーログインしてください</h2>
+    <h2>投票にはログインが必要です</h2>
   <% else %>
-    <h2>投票不可能</h2>
+    <h2>ご投票ありがとうございました</h2>
   <% end %>
   <div class="time-container">
   <h3>
