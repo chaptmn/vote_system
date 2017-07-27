@@ -61,7 +61,7 @@ class ContestsController < ApplicationController
     end
 
     def contest_params
-      params.require(:contest).permit(:admin_id, :title, :detail)
+      params.require(:contest).permit(:admin_user_id, :title, :detail)
     end
     
     def is_login?
