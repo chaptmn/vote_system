@@ -30,8 +30,8 @@ class ContestsController < ApplicationController
 
   def create
     @contest = Contest.new(contest_params)
-    @contest[:start_time] = params[:start_time].to_time
-    @contest[:end_time] = params[:end_time].to_time
+    @contest[:start_time] = params[:start_time]
+    @contest[:end_time] = params[:end_time]
     respond_to do |format|
       if @contest.save
         #これ使ってるのかな
