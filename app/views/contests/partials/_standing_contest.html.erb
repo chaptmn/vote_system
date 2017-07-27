@@ -35,10 +35,10 @@
   <div>
   <br /><br />
   <% if @vote > 0 %>
-    一人1票投票可能です.
+    好きな作品を1つ選び、「投票コメント入力へ」ボタンを押してください。
     <%= form_tag("/contests/#{@contest.id}/vote/new", :method => :get) do %>
       <input type=hidden name="selected_id" class="selected_id" value=""/>
-      <%= submit_tag "投票する" %>
+      <%= submit_tag "投票コメント入力へ..." %>
     <% end %>
   <% end %>
   
