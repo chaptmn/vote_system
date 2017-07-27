@@ -7,6 +7,7 @@ class ContestsController < ApplicationController
   end
 
   def new
+    redirect_to '/' if current_user.nil?
     @contest = Contest.new
   end
 
