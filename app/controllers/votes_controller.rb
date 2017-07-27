@@ -3,13 +3,14 @@ class VotesController < ApplicationController
   before_action :is_login?, only: [:new, :create]
 
   def new
-    if params[:selected_id].size == 0
+    if params[:selected_id].empty?
       redirect_to controller: 'contests', action: 'show', id: params[:contest_id]
+    else
+      id = params[:selected_id]
+      @product = Product.find(id)
+      @user = login_user
+      @vote = Vote.new
     end
-    id = params['selected_id']
-    @product = Product.find(id)
-    @user = login_user
-    @vote = Vote.new
   end
 
   def create
