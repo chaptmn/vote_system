@@ -49,8 +49,8 @@ class ContestsController < ApplicationController
 
   def update
     @contest = Contest.find_by(id: params[:id])
-    @contest.update_attribute(:start_time,params[:start_time]) if params[:start_time]
-    @contest.update_attribute(:end_time,params[:end_time]) if params[:end_time]
+    @contest.update_attributes(start_time: params[:start_time]) if params[:start_time].presence
+    @contest.update_attributes(end_time: params[:end_time]) if params[:end_time].presence
     redirect_to contest_path(params[:id]) 
   end
 
