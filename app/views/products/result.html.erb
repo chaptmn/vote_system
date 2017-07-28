@@ -23,8 +23,14 @@
 <ul class="collection">
 <% @votes.each do |vote| %>
     <li class="collection-item avatar">
-      <%= image_tag asset_path(@product.image),:class => "circle", :onerror => "this.src='http://smooch.jp/html/noimage.jpg'" %>
-
+      <% unless vote.user.image.nil? %>
+      <%= image_tag asset_path(vote.user.image), 
+        :onerror => "this.src='http://smooch.jp/html/noimage.jpg';", 
+        :class => "circle" %>
+    <% else %>
+    <%= image_tag 'http://smooch.jp/html/noimage.jpg', :class => "circle" %>
+    <% end %>
+      
       <% pro = @products.select{ |pro| vote.user.id  == pro.user.id and @product.contest.id == pro.contest.id }.first %>
       <span class="title"><%= vote.user.name %></span>
 
