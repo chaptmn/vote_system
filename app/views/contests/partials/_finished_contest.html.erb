@@ -18,8 +18,15 @@
 
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 
-  <div class="collection">
+  <ul class="collection">
 <% @products.sort{|a,b| b.votes.count <=> a.votes.count}.each do |pro|  %>
-    <a href="<%= result_contest_product_path(pro.contest_id, pro.id) %>" class="collection-item"><span class="badge"><%= pro.votes.count %></span><%= pro.title %></a>
+    <li class="collection-item avatar" onClick="location.href=<%= result_contest_product_path(pro.contest_id, pro.id) %>">
+    <a href="<%= result_contest_product_path(pro.contest_id, pro.id) %>">
+    <%= image_tag asset_path(pro.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg';", :class => "circle" %>
+      <span class="badge"><%= pro.votes.count %></span>
+      作品名 : <%= pro.title %><br/>
+      製作者 : <%= pro.user.name %>
+    </a>
+    </li>
 <% end %>
-  </div>
+  </ul>
