@@ -4,14 +4,7 @@
         <div class="row">
       <% end %>
         <div class="col s6 result-card">
-          <div class="card small">
-            <div class="card-image" id="<%= pro.id %>">
-              <% if pro.image == nil %>
-                <%= image_tag asset_path('http://smooch.jp/html/noimage.jpg') %>
-              <% else %>
-                <%= image_tag asset_path(pro.image), :onerror => "this.src='http://smooch.jp/html/noimage.jpg';" %>
-              <% end %>
-            </div>
+          <div class="card">
             <div class="card-content">
               <strong>
                 <%= pro.title %>
