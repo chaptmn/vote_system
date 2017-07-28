@@ -19,12 +19,19 @@
   </div>
 <div>
 <h2>コメント一覧</h2>
-
+            
 <ul class="collection">
 <% @votes.each do |vote| %>
     <li class="collection-item avatar">
       <%= image_tag asset_path(@product.image),:class => "circle", :onerror => "this.src='http://smooch.jp/html/noimage.jpg'" %>
+
+      <% pro = @products.select{ |pro| vote.user.id  == pro.user.id and @product.contest.id == pro.contest.id }.first %>
       <span class="title"><%= vote.user.name %></span>
+
+      <% unless pro.nil? %>
+      <a href="<%= result_contest_product_path(pro.contest_id, pro.id) %>" class="secondary-content"><i class="material-icons">send</i>
+      </a>
+      <% end %>
       <p>
          <%= vote.reason %>
       </p>
