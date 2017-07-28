@@ -22,7 +22,6 @@
 <ul class="collection">
 <% @votes.each do |vote| %>
     <li class="collection-item avatar">
-      <%= image_tag asset_path(@product.image),:class => "circle", :onerror => "this.src='http://smooch.jp/html/noimage.jpg'" %>
       <span class="title"><%= vote.user.name %></span>
       <p>
          <%= vote.reason %>
