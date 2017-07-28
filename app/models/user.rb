@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
                        email: auth.info.email,
                        provider: auth.provider,
                        uid: auth.uid,
+                       image: auth.info.image
     )
     end
     user

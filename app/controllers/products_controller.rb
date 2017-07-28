@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
 
   def result
     @votes = @product.votes
+    @products = Product.all
   end
 
   private
